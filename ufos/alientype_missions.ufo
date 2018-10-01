@@ -1,0 +1,319 @@
+//=========================================================================
+// Different alien teams that can be used during battle
+//=========================================================================
+//
+//	category - mission category that may use this alien team definition. see CP_GetAlienMissionTypeByID()
+//		for all available mission category. All mission category must appear at least once.
+//
+//	equipment - equipment pack this alien team may use. You can enter several equipment pack.
+//		This alien team will be able to use any equipment pack from equipment_missions.ufo starting with this string.
+//
+//	teaminterest - alien races that should be use for an alien overall interest with: mininterest <= interest < maxinterest.
+//
+//	Notes:
+//	 * If there are several possible alien teams (either in different alien teams, or because several teams in the
+//		same category may be used for the same alien interest), there is an equal probability to get one of them.
+//	 * Every team must have a different name.
+
+alienteam scouts
+{
+	category ("recon")
+	equipment ("alien_workers")
+	teaminterest
+	{
+		mininterest 	0
+		maxinterest 	49
+		minaliencount	3
+		maxaliencount	4
+		team 			(taman/alien_taman_light)
+	}
+	teaminterest
+	{
+		mininterest 	50
+		maxinterest 	79
+		minaliencount	4
+		maxaliencount	6
+		team 			(taman/alien_taman_light)
+	}
+	teaminterest
+	{
+		mininterest 	80
+		maxinterest 	109
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman_light shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	109
+		maxinterest 	199
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	200
+		maxinterest 	279
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	280
+		maxinterest 	309
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	310
+		maxinterest 	10000
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman_heavy shevaar)
+	}
+}
+
+alienteam workers
+{
+	category ("building" "supply")
+	equipment ("alien_workers")
+	teaminterest
+	{
+		mininterest 	0
+		maxinterest 	49
+		minaliencount	4
+		maxaliencount	6
+		team 			(taman/alien_taman_light)
+	}
+	teaminterest
+	{
+		mininterest 	50
+		maxinterest 	79
+		minaliencount	4
+		maxaliencount	6
+		team 			(taman/alien_taman_light)
+	}
+	teaminterest
+	{
+		mininterest 	80
+		maxinterest 	109
+		minaliencount	6
+		maxaliencount	8
+		team 			(taman/alien_taman_light shevaar)
+	}
+	teaminterest
+	{
+		mininterest 109
+		maxinterest 249
+		minaliencount	8
+		maxaliencount	10
+		team 			(taman/alien_taman shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	250
+		maxinterest 	309
+		minaliencount	8
+		maxaliencount	12
+		team 			(taman/alien_taman shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	310
+		maxinterest 	10000
+		minaliencount	8
+		maxaliencount	12
+		team 			(taman/alien_taman_heavy shevaar)
+	}
+}
+
+alienteam terror
+{
+	category ("terror" "harvest" "xvi")
+	equipment ("alien_soldiers")
+	teaminterest
+	{
+		mininterest 	0
+		maxinterest 	49
+		minaliencount	4
+		maxaliencount	6
+		team 			(taman/alien_taman_light bloodspider)
+	}
+	teaminterest
+	{
+		mininterest 	50
+		maxinterest 	79
+		minaliencount	6
+		maxaliencount	8
+		team 			(taman/alien_taman_light bloodspider hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	80
+		maxinterest 	109
+		minaliencount	8
+		maxaliencount	10
+		team 			(taman/alien_taman_light shevaar bloodspider hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	110
+		maxinterest 	199
+		minaliencount	8
+		maxaliencount	10
+		team 			(taman/alien_taman shevaar bloodspider hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	200
+		maxinterest 	249
+		minaliencount	10
+		maxaliencount	12
+		team 			(taman/alien_taman shevaar bloodspider_adv hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	250
+		maxinterest 	279
+		minaliencount	10
+		maxaliencount	14
+		team 			(shevaar ortnok bloodspider_adv hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	280
+		maxinterest 	379
+		minaliencount	10
+		maxaliencount	18
+		team 			(shevaar ortnok bloodspider_adv hovernet_adv)
+	}
+	teaminterest
+	{
+		mininterest 	380
+		maxinterest 	10000
+		minaliencount	13
+		maxaliencount	20
+		team 			(shevaar ortnok ortnok bloodspider_adv hovernet_adv)
+	}
+}
+
+alienteam soldiers
+{
+	category ("baseattack" "intercept" "rescue")
+	equipment ("alien_soldiers")
+	teaminterest
+	{
+		mininterest 	0
+		maxinterest 	49
+		minaliencount	4
+		maxaliencount	8
+		team 			(taman/alien_taman_light bloodspider)
+	}
+	teaminterest
+	{
+		mininterest 	50
+		maxinterest 	79
+		minaliencount	6
+		maxaliencount	8
+		team 			(taman/alien_taman_light hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	80
+		maxinterest 	109
+		minaliencount	6
+		maxaliencount	8
+		team 			(taman/alien_taman_light shevaar hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	110
+		maxinterest 	249
+		minaliencount	6
+		maxaliencount	10
+		team 			(taman/alien_taman shevaar hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	250
+		maxinterest 	279
+		minaliencount	8
+		maxaliencount	12
+		team 			(shevaar ortnok hovernet)
+	}
+	teaminterest
+	{
+		mininterest 	280
+		maxinterest 	379
+		minaliencount	10
+		maxaliencount	18
+		team 			(shevaar ortnok hovernet_adv)
+	}
+	teaminterest
+	{
+		mininterest 	380
+		maxinterest 	10000
+		minaliencount	13
+		maxaliencount	20
+		team 			(shevaar ortnok ortnok hovernet_adv)
+	}
+}
+
+alienteam full
+{
+	category ("alienbase" "ufocarrier")
+	equipment ("alien_base")
+
+	teaminterest
+	{
+		mininterest 	0 // TODO: set to 0 for debugging purpose, but this shouldn't be used before alien bases are spawned
+		maxinterest 	109
+		minaliencount	10
+		maxaliencount	16
+		team 			( taman/alien_taman_light shevaar hovernet bloodspider )
+	}
+	teaminterest
+	{
+		mininterest 	110
+		maxinterest 	199
+		minaliencount	10
+		maxaliencount	16
+		team 			( taman/alien_taman shevaar hovernet bloodspider )
+	}
+	teaminterest
+	{
+		mininterest 	200
+		maxinterest 	249
+		minaliencount	12
+		maxaliencount	18
+		team 			( taman/alien_taman shevaar hovernet bloodspider_adv )
+	}
+	teaminterest
+	{
+		mininterest 	250
+		maxinterest 	279
+		minaliencount	14
+		maxaliencount	20
+		team 			( taman/alien_taman shevaar ortnok hovernet bloodspider_adv )
+	}
+	teaminterest
+	{
+		mininterest 	280
+		maxinterest 	309
+		minaliencount	16
+		maxaliencount	20
+		team 			( taman/alien_taman shevaar ortnok hovernet_adv bloodspider_adv )
+	}
+	teaminterest
+	{
+		mininterest 	310
+		maxinterest 	10000
+		minaliencount	20
+		maxaliencount	24
+		team 			( taman/alien_taman_heavy shevaar ortnok hovernet_adv bloodspider_adv )
+	}
+}

@@ -1,0 +1,688 @@
+// ================
+// PLASMA PISTOL
+// ================
+item plaspistol
+{
+	name			"_Plasma Pistol"
+	model			"weapons/plaspistol/plaspistol"
+	weapon			true
+	type			"pistol"
+	animationindex	2
+	holdtwohanded	false
+	firetwohanded	false
+	shape			"0 0 3 2"
+	center			"1 0 0"
+	scale			1.5
+	ammo			9
+	reload			15
+	reloadsound		"weapons/reload-pistol"
+	price			2500
+	productioncost 	2000
+	size			20
+	is_secondary	true
+	weight			1.5
+}
+
+item plaspistol_ammo
+{
+	name			"_Plasma Pistol Charger"
+	model			"weapons/plaspistol/plaspistol_clip"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 1 1"
+	center			"0 0 -0.2"
+	scale			1.1
+	price			1000
+	productioncost 	800
+	size			3
+	is_secondary	true
+	dmgtype			"plasma"
+	weight			0.2
+
+	weapon_mod
+	{
+		weapon plaspistol
+		firedef
+		{
+			name				"_Snap Shot"
+			skill				"close"
+			projtl				plasmaMiniPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-small"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1500
+			spread				"2.2 2.2"
+			crouch				0.9
+			range				40
+			shots				1
+			ammo				1
+			delaybetweenshots	5
+			time				6
+			damage				"50 10"
+			dmgweight			"plasma_light"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Aimed Shot"
+			skill				"close"
+			projtl				plasmaMiniPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-small"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1500
+			spread				"2 2"
+			crouch				0.9
+			range				40
+			shots				1
+			ammo				1
+			delaybetweenshots	5
+			time				10
+			damage				"50 10"
+			dmgweight			"plasma_light"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Burst"
+			skill				"close"
+			projtl				plasmaMiniPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-small"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1500
+			spread				"2.8 2.8"
+			crouch				0.9
+			range				40
+			shots				3
+			ammo				3
+			delaybetweenshots	5
+			time				10
+			damage				"50 10"
+			dmgweight			"plasma_light"
+			reaction			true
+		}
+	}
+}
+
+
+// =======================
+// PLASMA RIFLE
+// =======================
+item plasrifle
+{
+	name			"_Plasma Rifle"
+	model			"weapons/plasrifle/plasrifle"
+	weapon			true
+	type			"biggun"
+	animationindex	1
+	holdtwohanded	false
+	firetwohanded	true
+	shape			"0 0 5 2"
+	center			"9.3 0 1.5"
+	scale			1.25
+	ammo			18
+	reload			12
+	reloadsound		"weapons/reload-rifle"
+	price			3100
+	productioncost 	2500
+	size			40
+	is_primary		true
+	weight			3.4
+}
+
+item plasrifle_ammo
+{
+	name			"_Plasma Rifle Charger"
+	model			"weapons/plasrifle/plasrifle_clip"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 2 1"
+	center			"0 0 -0.1"
+	scale			1.25
+	price			1250
+	productioncost 	1000
+	size			4
+	is_primary		true
+	dmgtype			"plasma"
+	weight			0.4
+
+	weapon_mod
+	{
+		weapon plasrifle
+		firedef
+		{
+			name				"_Snap Shot"
+			skill				"assault"
+			projtl				plasmaPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-medium"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1300
+			spread				"1.4 1.4"
+			crouch				0.85
+			range				70
+			shots				1
+			ammo				1
+			delaybetweenshots	5
+			time				9
+			damage				"80 10"
+			dmgweight			"plasma_medium"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Aimed Shot"
+			skill				"assault"
+			projtl				plasmaPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-medium"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1300
+			spread				"1 1"
+			crouch				0.85
+			range				70
+			shots				1
+			ammo				1
+			delaybetweenshots	5
+			time				12
+			damage				"80 10"
+			dmgweight			"plasma_medium"
+			reaction			false
+		}
+		firedef
+		{
+			name				"_3-Round Burst"
+			skill				"assault"
+			projtl				plasmaPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-medium"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1300
+			spread				"1.7 1.7"
+			crouch				0.85
+			range				70
+			shots				3
+			ammo				3
+			delaybetweenshots	8
+			time				12
+			damage				"80 10"
+			dmgweight			"plasma_medium"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Full-Auto"
+			skill				"assault"
+			projtl				plasmaPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-medium"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1700
+			spread				"2 2"
+			crouch				0.85
+			range				70
+			shots				6
+			ammo				6
+			delaybetweenshots	8
+			time				20
+			damage				"80 10"
+			dmgweight			"plasma_medium"
+			reaction			false
+		}
+	}
+}
+
+
+// =======================
+// PLASMA BLASTER
+// =======================
+item plasblaster
+{
+	name			"_Plasma Blaster"
+	model			"weapons/plasblaster/plasblaster"
+	weapon			true
+	type			"biggun"
+	animationindex	1
+	holdtwohanded	false
+	firetwohanded	true
+	shape			"0 0 5 1"
+	shape			"0 1 3 1"
+	center			"7 0 1.4"
+	scale			1.06
+	ammo			60
+	reload			20
+	reloadsound		"weapons/reload-rifle"
+	price			4100
+	productioncost 	3300
+	size			60
+	is_primary		true
+	is_heavy		true
+	weight			6.3
+}
+
+item plasblaster_ammo
+{
+	name			"_Plasma Blaster Charge"
+	model			"weapons/plasblaster/plasblaster_clip"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 1 1"
+	center			"0 0 -0.3"
+	scale			1.4
+	price			1800
+	productioncost 	1500
+	size			7
+	is_primary		true
+	is_heavy		true
+	dmgtype			"plasma"
+	weight			0.8
+
+	weapon_mod
+	{
+		weapon plasblaster
+		firedef
+		{
+			name				"_Ball"
+			skill				"close"
+			projtl				plasmaBigBall
+			impact				plasmaBigImpact
+			hitbody				plasmaBigImpact
+			firesnd				"weapons/plasma-huge"
+			impsnd				"impact/plasmaball-impact"
+			bodysnd 			"impact/plasmaball-impact"
+			speed				600
+			spread				"3 3"
+			crouch 				0.9
+			range				20
+			shots				1
+			ammo				10
+			delaybetweenshots	10
+			time				8
+			damage				"0 0"
+			spldmg				"160 20"
+			splrad				1
+			dmgweight			"plasma_heavy"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Snap Shot"
+			skill				"close"
+			projtl				plasmaContinuous
+			impact				plasmaImpact
+			hitbody				plasmaImpact
+			firesnd				"weapons/plasma-large"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			sndonce				true
+			speed				0
+			spread				"2 2"
+			crouch				0.9
+			range				35
+			shots				1
+			ammo				1
+			delaybetweenshots	38
+			time				8
+			damage				"80 10"
+			dmgweight			"plasma_heavy"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_3-Round Burst"
+			skill 				"close"
+			projtl				plasmaContinuous
+			impact				plasmaImpact
+			hitbody				plasmaImpact
+			firesnd				"weapons/plasma-large"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			sndonce				true
+			speed				0
+			spread				"2.5 2.5"
+			crouch				0.9
+			range				35
+			shots				3
+			ammo				3
+			delaybetweenshots	38
+			time				12
+			damage				"80 10"
+			dmgweight			"plasma_heavy"
+			reaction			true
+		}
+	}
+}
+
+// =======================
+// ENCASED PLASMA ROUNDS
+// =======================
+item encased_plasma_assault_ammo
+{
+	name			"_Assault Rifle EP Magazine"
+	model			"weapons/assault/enc_plasma_clip"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 1 2"
+	center			"0 0 0"
+	scale			1.25
+	price			1500
+	productioncost 	1000
+	size			3
+	is_primary		true
+	dmgtype			"plasma"
+	weight			0.4
+
+	weapon_mod
+	{
+		weapon assault
+		firedef
+		{
+			name		"_Snap Shot"
+			skill		"assault"
+			projtl		bullet
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-rifle-1x"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3000
+			spread		"1.3 1.3"
+			crouch		0.85
+			range		90
+			shots		1
+			ammo		1
+			time		9
+			damage		"75 14"
+			dmgweight	"plasma_pierce"
+			reaction	true
+		}
+		firedef
+		{
+			name		"_Aimed Shot"
+			skill		"assault"
+			projtl		bullet
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-rifle-1x"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3000
+			spread		"1 1"
+			crouch		0.85
+			range		90
+			shots		1
+			ammo		1
+			time		12
+			damage		"75 14"
+			dmgweight	"plasma_pierce"
+			reaction	false
+		}
+		firedef
+		{
+			name				"_3-Round Burst"
+			skill				"assault"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-rifle-3x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"1.7 1.7"
+			crouch				0.85
+			range				90
+			shots				3
+			ammo				3
+			delaybetweenshots	10
+			time				12
+			damage				"75 14"
+			dmgweight			"plasma_pierce"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Full-Auto"
+			skill				"assault"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-rifle-8x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2 2"
+			crouch				0.85
+			range				90
+			shots				8
+			ammo				8
+			delaybetweenshots	10
+			time				22
+			damage				"75 14"
+			dmgweight			"plasma_pierce"
+			reaction	false
+		}
+	}
+}
+
+item encased_plasma_mg_ammo
+{
+	name			"_Machine Gun EP Magazine"
+	model			"weapons/machinegun/enc_plasma_clip_mg"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 2 2"
+	center			"0 0 0"
+	scale			1.9
+	price			2000
+	productioncost 	1500
+	size			6
+	is_primary		true
+	is_heavy		true
+	dmgtype			"plasma"
+	weight			1.3
+
+	weapon_mod
+	{
+		weapon machinegun
+		firedef
+		{
+			name				"_5-Shot Burst"
+			skill				"assault"
+			projtl				bullet-hmg
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-hmg-5x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2 2"
+			crouch				0.85
+			range				90
+			shots				5
+			ammo				5
+			delaybetweenshots	10
+			time				14
+			damage				"90 15"
+			dmgweight			"plasma_pierce"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Full-Auto"
+			skill				"assault"
+			projtl				bullet-hmg
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-hmg-20x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2.8 2.8"
+			crouch				0.85
+			range				90
+			shots				15
+			ammo				15
+			delaybetweenshots	10
+			time				26
+			damage				"90 15"
+			dmgweight			"plasma_pierce"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Full-Auto Sweep"
+			skill				"assault"
+			projtl				bullet-hmg
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-hmg-20x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"3.2 12"
+			crouch				0.85
+			range				90
+			shots				20
+			ammo				20
+			delaybetweenshots	10
+			time				26
+			damage				"90 15"
+			dmgweight			"plasma_pierce"
+			reaction			false
+		}
+	}
+}
+
+item encased_plasma_sniper_ammo
+{
+	name			"_Sniper Rifle EP Magazine"
+	model			"weapons/sniper/enc_plasma_clip_snp"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 1 2"
+	center			"0 0 0"
+	scale			1.15
+	price			1500
+	productioncost 	1000
+	size			8
+	is_primary		true
+	dmgtype			"plasma"
+	weight			0.4
+
+	weapon_mod
+	{
+		weapon sniper
+		firedef
+		{
+			name		"_Snap Shot"
+			skill		"sniper"
+			projtl		bullet_sniper
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-sniper"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3600
+			spread		"1.2 1.2"
+			crouch		0.85
+			range		100
+			shots		1
+			ammo		1
+			time		14
+			damage		"180 30"
+			dmgweight	"plasma_pierce"
+			reaction	true
+			throughwall 3
+		}
+		firedef
+		{
+			name		"_Aimed Shot"
+			skill		"sniper"
+			projtl		bullet_sniper
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-sniper"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3600
+			spread		"0.5 0.5"
+			crouch		0.6
+			range		100
+			shots		1
+			ammo		1
+			time		20
+			damage		"180 30"
+			dmgweight	"plasma_pierce"
+			reaction	true
+			throughwall 3
+		}
+	}
+	weapon_mod
+	{
+		weapon shotgun
+		firedef
+		{
+			name		"_Snap Shot"
+			skill		"close"
+			projtl		bullet_sniper
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-sniper"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3600
+			spread		"1.6 1.6"
+			crouch		0.9
+			range		70
+			shots		1
+			ammo		1
+			time		7
+			damage		"180 20"
+			dmgweight	"plasma_pierce"
+			reaction	true
+			throughwall 4
+		}
+		firedef
+		{
+			name		"_Aimed Shot"
+			skill		"close"
+			projtl		bullet_sniper
+			impact		bulletImpact
+			hitbody		null
+			firesnd		"weapons/bullet-sniper"
+			impsnd		"impact/bullet-impact"
+			bodysnd 	"impact/bullet-bodyimpact"
+			speed		3600
+			spread		"1 1"
+			crouch		0.8
+			range		70
+			shots		1
+			ammo		1
+			time		12
+			damage		"180 20"
+			dmgweight	"plasma_pierce"
+			reaction	false
+			throughwall 4
+		}
+	}
+}
