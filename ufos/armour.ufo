@@ -65,7 +65,7 @@ item armour_light
 	shape		"0 0 3 4"
 	center		"0 0 -5"
 	scale		0.7
-	price		2100
+	price		2800
 	productioncost 	1400
 	size		60
 	weight		7.0
@@ -131,7 +131,7 @@ item armour_medium
 	shape		"0 0 3 4"
 	center		"0 0 -5"
 	scale		0.7
-	price		12000
+	price		16000
 	productioncost 	8000
 	size		120
 	weight		9.0
@@ -197,7 +197,7 @@ item armour_power
 	shape		"0 0 3 4"
 	center		"0 0 -5"
 	scale		0.7
-	price		45000
+	price		60000
 	productioncost 	30000
 	size		150
 	weight		14.0

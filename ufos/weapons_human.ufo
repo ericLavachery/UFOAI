@@ -17,7 +17,7 @@ item assault
 	ammo			30
 	reload			8
 	reloadsound		"weapons/reload-rifle"
-	price			1500
+	price			2000
 	productioncost 	1000
 	size			20
 	is_primary		true
@@ -33,7 +33,7 @@ item assault_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.25
-	price			100
+	price			140
 	productioncost 	70
 	size			3
 	is_primary		true
@@ -244,8 +244,8 @@ item machinegun
 	ammo			120
 	reload			16
 	reloadsound		"weapons/reload-rifle"	// @todo better sound?
-	price			1600
-	productioncost 	1200
+	price			3200
+	productioncost 	1600
 	size			20
 	is_primary		true
 	is_heavy		true
@@ -261,7 +261,7 @@ item machinegun_ammo
 	shape			"0 0 2 2"
 	center			"0 0 0"
 	scale			1.9
-	price			90
+	price			130
 	productioncost 	65
 	size			6
 	is_primary		true
@@ -363,8 +363,8 @@ item shotgun
 	ammo			10
 	reload			6
 	reloadsound		"weapons/reload-shotgun"
-	price			1500
-	productioncost 	1000
+	price			1600
+	productioncost 	800
 	size			25
 	is_primary		true
 	weight			2.2
@@ -389,8 +389,8 @@ item sniper
 	ammo			10
 	reload			10
 	reloadsound		"weapons/reload-sniper"
-	price			1900
-	productioncost 	1300
+	price			3000
+	productioncost 	1500
 	size			60
 	is_primary		true
 	weight			6
@@ -528,7 +528,7 @@ item bolterrifle
 	ammo			4
 	reload			12
 	reloadsound		"weapons/reload-rifle"
-	price			3000
+	price			4000
 	productioncost 	2000
 	size			45
 	is_primary		true
@@ -545,8 +545,8 @@ item bolterrifle_ammo
 	shape			"0 0 3 1"
 	center			"0 0 0"
 	scale			1.2
-	price			1350
-	productioncost 	930
+	price			1800
+	productioncost 	900
 	size			9
 	is_primary		true
 	is_heavy		true
@@ -614,7 +614,7 @@ item bolterrifle_am_ammo
 	shape			"0 0 3 1"
 	center			"0 0 0"
 	scale			1.2
-	price			1800
+	price			2400
 	productioncost 	1200
 	size			9
 	is_primary		true
@@ -693,7 +693,7 @@ item coilgun
 	ammo			7
 	reload			16
 	reloadsound		"weapons/reload-sniper"
-	price			4500
+	price			6000
 	productioncost 	3000
 	size			30
 	is_primary		true
@@ -710,7 +710,7 @@ item coilgun_ammo
 	shape			"0 0 2 2"
 	center			"0 0 1.2"
 	scale			1.15
-	price			130
+	price			180
 	productioncost 	90
 	size			4
 	is_primary		true
@@ -787,8 +787,8 @@ item pistol
 	ammo			12
 	reload			4
 	reloadsound		"weapons/reload-pistol"
-	price			1000
-	productioncost 	900
+	price			800
+	productioncost 	400
 	size			7
 	is_secondary	true
 	weight			0.5
@@ -803,7 +803,7 @@ item pistol_ammo
 	shape			"0 0 1 1"
 	center			"0 0 -0.2"
 	scale			1.5
-	price			22
+	price			40
 	productioncost 	20
 	size			1
 	is_secondary	true
@@ -879,7 +879,7 @@ item pistol2
 	reload			6
 	reloadsound		"weapons/reload-pistol"
 	price			1200
-	productioncost 	1000
+	productioncost 	600
 	size			7
 	is_secondary	true
 	weight			0.7
@@ -894,7 +894,7 @@ item pistol2_ammo
 	shape			"0 0 1 2"
 	center			"0 0 -0.21"
 	scale			2.5
-	price			22
+	price			40
 	productioncost 	20
 	size			2
 	is_secondary	true
@@ -991,8 +991,8 @@ item smg
 	ammo			36
 	reload			8
 	reloadsound		"weapons/reload-smg"
-	price			1500
-	productioncost 	1350
+	price			1800
+	productioncost 	900
 	size			8
 	is_secondary	true
 	weight			1.3
@@ -1007,7 +1007,7 @@ item smg_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.4
-	price			45
+	price			80
 	productioncost 	40
 	size			3
 	is_secondary	true
@@ -1084,8 +1084,8 @@ item shotgun2
 	ammo			4
 	reload			18
 	reloadsound		"weapons/reload-shotgun"
-	price			2100
-	productioncost 	1500
+	price			2000
+	productioncost 	1000
 	size			25
 	is_primary		true
 	weight			2.6
@@ -1100,7 +1100,7 @@ item shotgun2_slug_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			1.5
-	price			45
+	price			70
 	productioncost 	35
 	size			5
 	is_primary		true
@@ -1177,8 +1177,8 @@ item shotgun_micro
 	ammo			8
 	reload			8
 	reloadsound		"weapons/reload-shotgun"
-	price			1600
-	productioncost 	1350
+	price			1400
+	productioncost 	700
 	size			10
 	is_secondary	true
 	weight			1.3
@@ -1193,7 +1193,7 @@ item shotgun_micro_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			1.4
-	price			42
+	price			70
 	productioncost 	35
 	size			4
 	is_primary		true
@@ -1275,8 +1275,8 @@ item flamer
 	ammo			6
 	reload			20
 	reloadsound		"weapons/reload-pistol"	// @todo better sound?
-	price			2200
-	productioncost 	1500
+	price			3600
+	productioncost 	1800
 	size			60
 	is_primary		true
 	is_heavy		true
@@ -1292,7 +1292,7 @@ item flamer_ammo
 	shape			"0 0 2 1"
 	center			"0 0 0"
 	scale			1.1
-	price			250
+	price			340
 	productioncost 	170
 	size			10
 	is_primary		true
@@ -1389,7 +1389,7 @@ item rpg
 	ammo			1
 	reload			14
 	reloadsound		"weapons/reload-rocket"
-	price			6000
+	price			8000
 	productioncost 	4000
 	size			75
 	is_primary		true
@@ -1406,8 +1406,8 @@ item rpg_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.1
-	price			640
-	productioncost 	430
+	price			900
+	productioncost 	450
 	size			6
 	is_primary		true
 	is_heavy		true
@@ -1452,8 +1452,8 @@ item rpg_incendiary_ammo
 	shape			"0 0 1 2"
 	center			"0 0 -0.5"
 	scale			1.1
-	price			960
-	productioncost 	640
+	price			1300
+	productioncost 	650
 	size			6
 	is_primary		true
 	is_heavy		true
@@ -1499,7 +1499,7 @@ item rpg_hybrid_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.1
-	price			1200
+	price			1600
 	productioncost 	800
 	size			6
 	is_primary		true
@@ -1555,8 +1555,8 @@ item grenl
 	ammo			6
 	reload			16
 	reloadsound		"weapons/reload-grenade"
-	price			3700
-	productioncost 	2500
+	price			4000
+	productioncost 	2000
 	size			60
 	is_primary		true
 	is_heavy		true
@@ -1572,7 +1572,7 @@ item grenl_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			0.7
-	price			200
+	price			270
 	productioncost 	135
 	size			6
 	is_primary		true
@@ -1708,8 +1708,8 @@ item grenl_incendiary_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			0.7
-	price			200
-	productioncost 	135
+	price			300
+	productioncost 	150
 	size			6
 	is_primary		true
 	is_heavy		true
@@ -1848,8 +1848,8 @@ item grenl_plasma_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			0.7
-	price			1400
-	productioncost 	930
+	price			1800
+	productioncost 	900
 	size			6
 	is_primary		true
 	is_heavy		true
@@ -1987,8 +1987,8 @@ item grenl_fle_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			0.7
-	price			240
-	productioncost 	160
+	price			300
+	productioncost 	150
 	size			6
 	is_primary		true
 	is_heavy		true

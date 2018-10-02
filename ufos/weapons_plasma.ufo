@@ -16,8 +16,8 @@ item plaspistol
 	ammo			9
 	reload			15
 	reloadsound		"weapons/reload-pistol"
-	price			2500
-	productioncost 	2000
+	price			3000
+	productioncost 	1500
 	size			20
 	is_secondary	true
 	weight			1.5
@@ -32,8 +32,8 @@ item plaspistol_ammo
 	shape			"0 0 1 1"
 	center			"0 0 -0.2"
 	scale			1.1
-	price			1000
-	productioncost 	800
+	price			600
+	productioncost 	300
 	size			3
 	is_secondary	true
 	dmgtype			"plasma"
@@ -130,7 +130,7 @@ item plasrifle
 	ammo			18
 	reload			12
 	reloadsound		"weapons/reload-rifle"
-	price			3100
+	price			5000
 	productioncost 	2500
 	size			40
 	is_primary		true
@@ -146,8 +146,8 @@ item plasrifle_ammo
 	shape			"0 0 2 1"
 	center			"0 0 -0.1"
 	scale			1.25
-	price			1250
-	productioncost 	1000
+	price			1000
+	productioncost 	500
 	size			4
 	is_primary		true
 	dmgtype			"plasma"
@@ -267,7 +267,7 @@ item plasblaster
 	ammo			60
 	reload			20
 	reloadsound		"weapons/reload-rifle"
-	price			4100
+	price			6600
 	productioncost 	3300
 	size			60
 	is_primary		true
@@ -284,8 +284,8 @@ item plasblaster_ammo
 	shape			"0 0 1 1"
 	center			"0 0 -0.3"
 	scale			1.4
-	price			1800
-	productioncost 	1500
+	price			1400
+	productioncost 	700
 	size			7
 	is_primary		true
 	is_heavy		true
@@ -380,8 +380,8 @@ item encased_plasma_assault_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.25
-	price			1500
-	productioncost 	1000
+	price			1000
+	productioncost 	500
 	size			3
 	is_primary		true
 	dmgtype			"plasma"
@@ -490,8 +490,8 @@ item encased_plasma_mg_ammo
 	shape			"0 0 2 2"
 	center			"0 0 0"
 	scale			1.9
-	price			2000
-	productioncost 	1500
+	price			1400
+	productioncost 	700
 	size			6
 	is_primary		true
 	is_heavy		true
@@ -582,8 +582,8 @@ item encased_plasma_sniper_ammo
 	shape			"0 0 1 2"
 	center			"0 0 0"
 	scale			1.15
-	price			1500
-	productioncost 	1000
+	price			1700
+	productioncost 	850
 	size			8
 	is_primary		true
 	dmgtype			"plasma"

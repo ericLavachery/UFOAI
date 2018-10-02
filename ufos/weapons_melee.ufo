@@ -11,7 +11,7 @@ item knife
 	shape			"0 0 1 2"
 	center			"-1 0 3"
 	scale			1.0
-	price			60
+	price			100
 	productioncost 	50
 	size			6
 	is_secondary	true
@@ -76,8 +76,8 @@ item knifemono
 	shape			"0 0 1 3"
 	center			"-1 0 5"
 	scale			1.0
-	price			2400
-	productioncost 	1600
+	price			1600
+	productioncost 	800
 	size			12
 	is_secondary	true
 	thrown			true
@@ -144,8 +144,8 @@ item stunrod
 	shape			"0 1 3 1"
 	center			"3.2 0.5 -2.6"
 	scale			1.05
-	price			1200
-	productioncost 	800
+	price			800
+	productioncost 	400
 	size			25
 	is_secondary	true
 	thrown			false
@@ -229,8 +229,8 @@ item kerrblade
 	shape			"0 1 5 1"
 	center			"6.3 0 3"
 	scale			1.0
-	price			1800
-	productioncost 	1200
+	price			2000
+	productioncost 	1000
 	size			40
 	is_secondary	true
 	thrown			true
@@ -293,8 +293,8 @@ item plasblade
 	shape			"0 0 1 2"
 	center			"1 4.5 1"
 	scale  			1.5
-	price			4500
-	productioncost 	3000
+	price			5000
+	productioncost 	2500
 	size			5
 	is_secondary	true
 	thrown			true

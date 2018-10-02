@@ -16,8 +16,8 @@ item pbeampistol
 	ammo			16
 	reload			14
 	reloadsound		"weapons/reload-pistol"
-	price			4500
-	productioncost 	3000
+	price			5000
+	productioncost 	2500
 	size			20
 	is_secondary	true
 	weight			0.4
@@ -32,8 +32,8 @@ item pbeampistol_ammo
 	shape			"0 0 1 1"
 	center			"0 0 0"
 	scale			0.97
-	price			1500
-	productioncost 	1000
+	price			500
+	productioncost 	250
 	size			3
 	is_secondary	true
 	dmgtype			"particlebeam"
@@ -108,8 +108,8 @@ item pbeamrifle
 	ammo			12
 	reload			14
 	reloadsound		"weapons/reload-rifle"
-	price			6000
-	productioncost 	4000
+	price			9000
+	productioncost 	4500
 	size			40
 	is_primary		true
 	weight			3.7
@@ -124,8 +124,8 @@ item pbeamrifle_ammo
 	shape			"0 0 1 1"
 	center			"0 0 -0.3"
 	scale			1.1
-	price			1900
-	productioncost 	1300
+	price			900
+	productioncost 	450
 	size			5
 	is_primary		true
 	dmgtype			"particlebeam"
@@ -220,8 +220,8 @@ item pbeamcannon
 	ammo			24
 	reload			18
 	reloadsound		"weapons/reload-rifle"
-	price			9500
-	productioncost 	8000
+	price			14000
+	productioncost 	7000
 	size			70
 	is_primary		true
 	is_heavy		true
@@ -237,8 +237,8 @@ item pbeamcannon_ammo
 	shape			"0 0 2 1"
 	center			"0 0 -0.2"
 	scale			1.0
-	price			2100
-	productioncost 	1400
+	price			1400
+	productioncost 	700
 	size			8
 	is_primary		true
 	is_heavy		true

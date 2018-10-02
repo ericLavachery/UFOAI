@@ -103,7 +103,7 @@ aircraft craft_drop_firebird
 	defaultname	"_Firebird D"
 	type		"transporter"
 	model		"geoscape/drop_firebird"
-	price 	30000
+	price 	40000
 	productioncost 	20000
 	building	building_hangar
 	numteam		8
@@ -145,7 +145,7 @@ aircraft craft_drop_herakles
 	defaultname	"_Herakles D"
 	type		"transporter"
 	model		"geoscape/drop_herakles"
-	price		45000
+	price		60000
 	productioncost 	30000
 	building	building_hangar
 	numteam		12
@@ -188,7 +188,7 @@ aircraft craft_drop_raptor
 	defaultname	"_Raptor"
 	type		"transporter"
 	model		"geoscape/drop_raptor"
-	price		45000
+	price		60000
 	productioncost 	30000
 	building	building_hangar
 	numteam		10
@@ -246,7 +246,7 @@ aircraft craft_inter_stiletto
 	model		"geoscape/inter_stiletto"
 	numteam		0
 	size		1
-	price		30000
+	price		40000
 	productioncost 	20000
 	building	building_intercept
 	image		"geoscape/air_interceptor"
@@ -298,7 +298,7 @@ aircraft craft_inter_saracen
 	model		"geoscape/inter_saracen"
 	numteam		0
 	size		1
-	price		45000
+	price		60000
 	productioncost 	30000
 	building	building_intercept
 	image		"geoscape/air_interceptor"
@@ -346,7 +346,7 @@ aircraft craft_inter_dragon
 	model		"geoscape/inter_dragon"
 	numteam		0
 	size		1
-	price		60000
+	price		80000
 	productioncost 	40000
 	building	building_intercept
 	image		"geoscape/air_interceptor"
@@ -394,7 +394,7 @@ aircraft craft_inter_starchaser
 	model		"geoscape/inter_starchaser"
 	numteam		0
 	size		1
-	price		60000
+	price		80000
 	productioncost 	40000
 	building	building_intercept
 	image		"geoscape/air_interceptor"
@@ -447,7 +447,7 @@ aircraft craft_inter_stingray
 	model		"geoscape/inter_stingray"
 	numteam		0
 	size		1
-	price		80000
+	price		110000
 	productioncost 	55000
 	building	building_intercept
 	image		"geoscape/air_interceptor"
@@ -901,7 +901,7 @@ craftitem craft_weapon_alc
 	crafttype			"weapon"
 	size				40 // "light"
 	installationTime	2
-	price				10500
+	price				14000
 	productioncost 	7000
 	model				"aircraft/craft_weapon_alc/alc"
 
@@ -933,7 +933,7 @@ craftitem craft_weapon_shiva
 	crafttype			"weapon"
 	size				40 // "light"
 	installationTime	2
-	price				7500
+	price				10000
 	productioncost 	5000
 	bullets				true
 	model				"aircraft/craft_weapon_shiva/shiva"
@@ -944,7 +944,7 @@ craftitem craft_ammo_shiva_API
 	name		"_SHIVA 20mm API Rounds"
 	crafttype	"ammo"
 	craftweapon	craft_weapon_shiva
-	price		900
+	price		1200
 	productioncost 	600
 
 	ammo		100
@@ -961,7 +961,7 @@ craftitem craft_ammo_shiva_HEI
 	name			"_SHIVA 20mm HEI Rounds"
 	crafttype		"ammo"
 	craftweapon		craft_weapon_shiva
-	price			900
+	price			1200
 	productioncost 	600
 
 	ammo		100
@@ -979,7 +979,7 @@ craftitem craft_el_raven
 	crafttype			"electronics"
 	size				20 // "light"
 	installationTime	1
-	price				12000
+	price				16000
 	productioncost 	8000
 	model				"aircraft/craft_item_raven_ecm/ecm"
 
@@ -992,7 +992,7 @@ craftitem craft_weapon_sparrowhawk
 	crafttype			"weapon"
 	size				110 // "medium"
 	installationTime	3
-	price				10500
+	price				14000
 	productioncost 	7000
 	model				"aircraft/craft_weapon_sparrow/sparrowhawk_rack"
 }
@@ -1002,7 +1002,7 @@ craftitem craft_ammo_sparrowhawk
 	name		"_Sparrowhawk Missile"
 	crafttype	"ammo"
 	craftweapon	craft_weapon_sparrowhawk
-	price		1500
+	price		2000
 	productioncost 	1000
 	model		"geoscape/missile_sparrow"
 
@@ -1021,7 +1021,7 @@ craftitem craft_weapon_tr20
 	crafttype			"weapon"
 	size				90 // "medium"
 	installationTime	2
-	price				9000
+	price				12000
 	productioncost 	6000
 	model				"aircraft/craft_weapon_tr20/tr20"
 
@@ -1034,7 +1034,7 @@ craftitem craft_ammo_tr20
 	name			"_TR-20 Rocket"
 	crafttype		"ammo"
 	craftweapon		craft_weapon_tr20
-	price			1260
+	price			1680
 	productioncost 	840
 	model			"geoscape/missile_tr20"
 
@@ -1055,7 +1055,7 @@ craftitem craft_weapon_particle_beam
 	crafttype			"weapon"
 	size				90 // "medium"
 	installationTime	4
-	price				16500
+	price				22000
 	productioncost 	11000
 	model				"aircraft/craft_weapon_particle/pbw"
 
@@ -1086,7 +1086,7 @@ craftitem craft_weapon_alien_launcher
 	crafttype "weapon"
 	size 110
 	installationTime 5
-	price 18000
+	price 24000
 	productioncost 	12000
 	model "aircraft/craft_weapon_antim/launcher_a"
 }
@@ -1096,7 +1096,7 @@ craftitem craft_ammo_am_missile
 	name		"_Antimatter Missile"
 	crafttype	"ammo"
 	craftweapon	craft_weapon_alien_launcher
-	price		4500
+	price		6000
 	productioncost 	3000
 	size		60 // "medium"
 	model		"geoscape/missile_antimatter"
@@ -1114,7 +1114,7 @@ craftitem craft_ammo_hybrid_missile
 	name		"_Hybrid Missile"
 	crafttype	"ammo"
 	craftweapon	craft_weapon_alien_launcher
-	price		4000
+	price		5400
 	productioncost 	2700
 	size		50 // "light"
 	model		"aircraft/craft_weapon_hybrid/hybrid"
@@ -1132,7 +1132,7 @@ craftitem craft_el_targeting
 	name				"_Targeting Computer"
 	crafttype			"electronics"
 	installationTime	1
-	price				15000
+	price				20000
 	productioncost 	10000
 	size				20 // "light"
 	model				"aircraft/craft_item_target/craft_item_target"
@@ -1145,7 +1145,7 @@ craftitem craft_el_fuelpod
 	name				"_Fuel Pod"
 	crafttype			"electronics"
 	installationTime	2
-	price				4500
+	price				6000
 	productioncost 	3000
 	size				20 // "light"
 	model				"aircraft/craft_item_fuel/fuel"
@@ -1160,7 +1160,7 @@ craftitem craft_shield_polymer
 	name				"_Polymer Aircraft Armour"
 	crafttype			"shield"
 	installationTime	24
-	price				1800
+	price				2400
 	productioncost 	1200
 	size				40 // "light"
 	model				"aircraft/craft_arm_poly/polymer"
@@ -1175,7 +1175,7 @@ craftitem craft_shield_plating
 	name				"_Alien Aircraft Plating"
 	crafttype			"shield"
 	installationTime	36
-	price				4500
+	price				6000
 	productioncost 	3000
 	size				50 // "light"
 	model				"aircraft/craft_arm_plate/plating"
@@ -1190,7 +1190,7 @@ craftitem craft_shield_polymer_alien
 	name				"_Alien Polymer Armour"
 	crafttype			"shield"
 	installationTime	36
-	price				4500
+	price				6000
 	productioncost 	3000
 	size				50 // "light"
 	model				"aircraft/craft_arm_poly_alien/polymer_alien"
@@ -1206,7 +1206,7 @@ craftitem craft_el_alien_ew
 	crafttype			"electronics"
 	size				20 // "light"
 	installationTime	1
-	price				12000
+	price				16000
 	productioncost 	8000
 	model				"aircraft/craft_item_ew_alien/ew_alien"
 	ecm		1.5
@@ -1218,7 +1218,7 @@ craftitem craft_alien_astrogation
 	crafttype			"electronics"
 	model				"aircraft/craft_item_astro/astrogation"
 	installationTime	-1
-	price				7500
+	price				10000
 	productioncost 	5000
 	size				20 // "light"
 }
@@ -1228,7 +1228,7 @@ craftitem craft_alien_propulsion
 	name				"_Alien Propulsion"
 	crafttype			"electronics"
 	installationTime	-1
-	price				9000
+	price				12000
 	productioncost 	6000
 	size				50 // "light"
 }
@@ -1238,7 +1238,7 @@ craftitem craft_alien_propulsion_adv
 	name				"_Advanced Alien Propulsion"
 	crafttype			"electronics"
 	installationTime	-1
-	price				9000
+	price				12000
 	productioncost 	6000
 	size				50 // "light"
 }
@@ -1248,7 +1248,7 @@ craftitem craft_alien_detection
 	name				"_Alien Detection"
 	crafttype			"electronics"
 	installationTime	-1
-	price				7500
+	price				10000
 	productioncost 	5000
 	size				20 // "light"
 }
@@ -1263,7 +1263,7 @@ craftitem base_AA51_launcher
 	crafttype			"base_missile"
 	size				90 // "medium"
 	installationTime	12
-	price				7500
+	price				10000
 	productioncost 	5000
 	is_dummy			true
 	model				"objects/samlauncher/samlauncher"
@@ -1294,7 +1294,7 @@ craftitem baselaser
 	crafttype			"base_laser"
 	size				90 // "medium"
 	installationTime	12
-	price				15000
+	price				20000
 	productioncost 	10000
 	is_dummy			true
 

@@ -20,7 +20,7 @@ ugv ugv_ares_w
 	weapon	ugv_chaingun // todo: different weapon?
 	armour	"medium"
 	actors	"_ugv_ares_w"
-	price	1500 // TODO: fix me, this is for debugging only
+	price	2000 // TODO: fix me, this is for debugging only
 	productioncost 	1000
 }
 
@@ -30,7 +30,7 @@ ugv ugv_phoenix
 	weapon	ugv_chaingun // todo: different weapon?
 	armour	"medium"
 	actors	"_ugv_phoenix"
-	price	3000 // TODO: fix me, this is for debugging only
+	price	4000 // TODO: fix me, this is for debugging only
 	productioncost 	2000
 }
 
@@ -72,7 +72,7 @@ item ugv_chaingun_belt
 	shape			"0 0 6 2"
 	center			"-3 -6 0"
 	scale			1.6
-	price			3700
+	price			5000
 	productioncost 	2500
 	is_ugvitem		true
 	size			40
