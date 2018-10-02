@@ -2231,6 +2231,33 @@ tech rs_weapon_encased_plasma_sniper_ammo
 	producetime	30
 }
 
+tech rs_weapon_encased_plasma_slug_ammo
+{
+	type	"weapon"
+	up_chapter	equipment
+
+	description {
+		default "*msgid:encased_plasma_txt"
+	}
+	pre_description {
+		default "*msgid:encased_plasma_pre_txt"
+	}
+
+	require_AND
+	{
+		tech rs_weapon_encased_plasma
+	}
+
+	require_for_production
+	{
+	    item (alienmaterials 3)
+	}
+
+	provides	encased_plasma_slug_ammo
+	time	0
+	producetime	20
+}
+
 tech rs_weapon_needlergun
 {
 	name	"_Needler Gun"

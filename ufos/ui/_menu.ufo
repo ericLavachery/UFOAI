@@ -1,0 +1,640 @@
+// =======================================
+// COMPONENTS FOR THE MAIN USER INTERFACE
+// =======================================
+
+/**
+ * Big green button used in all main menu UI
+ * We should only use it for the main UI (outside game)
+ */
+
+component cmpMenuButton extends button
+{
+	size "256 64"
+	background	"ui/button_green_big"
+	font	"f_menubig"
+	color	"0 0.5 0 1"
+	selectcolor "1 1 1 1"
+}
+
+/**
+ * Bar with border, label and value.
+ * Used to show stats of the actor.
+ * This version is used in menu "employees" and "game_team"
+ */
+
+component cmpDefNamedTbar extends panel
+{
+	{
+		size	"450 32"
+	}
+	image			bdr {
+		pos "25 18"
+		src "ui/bar_border"
+	}
+	tbar		bar {
+		pos "27 18"
+		texl "3 0"
+		image "ui/bar_attribute"
+		size "250 16"
+		max 100
+	}
+	string	lbl {
+		pos "0 0"
+		size "180 20"
+		string ""
+	}
+	string	val {
+		pos "190 0"
+		size "130 20"
+		contentalign ALIGN_UR
+	}
+}
+
+/**
+ * screenshot of the map. Used in skirmish and mp.
+ */
+
+component cmpMapImage extends image
+{
+	texl			"0 0"
+	texh			"128 96"
+	onWheelUp		{ cmd "mn_prevmap;" }
+	onWheelDown		{ cmd "mn_nextmap;" }
+	onClick			{ cmd "mn_nextmap;" }
+	onRClick		{ cmd "mn_prevmap;" }
+}
+
+component cmpMapSlot extends panel
+{
+	{
+		size "315 35"
+	}
+
+	textentry slot_map
+	{
+		background		"ui/button_green_verysmall"
+		color 		"0 .78 0 1"
+		string		*cvar:mn_svmapname
+		selectcolor	"1 1 1 1"
+		contentalign	ALIGN_CC
+		padding		8
+		font		"f_small"
+		pos			"32 0"
+		size		"256 34"
+		disabled	true
+		onWheelUp	{ cmd "mn_prevmap;" }
+		onWheelDown	{ cmd "mn_nextmap;" }
+	}
+
+	button prev_map
+	{
+		pos			"0 0"
+		size		"35 35"
+		icon		"icons/prev"
+		onWheelUp	{ cmd "mn_prevmap;" }
+		onWheelDown	{ cmd "mn_nextmap;" }
+		onClick		{ cmd "mn_prevmap;" }
+	}
+	button next_map
+	{
+		pos			"285 0"
+		size		"35 35"
+		icon		"icons/next"
+		onWheelUp	{ cmd "mn_prevmap;" }
+		onWheelDown	{ cmd "mn_nextmap;" }
+		onClick		{ cmd "mn_nextmap;" }
+	}
+}
+
+
+/**
+ * Header for the base. Used in all baseview screens
+ */
+
+component cmpDefBaseHeader extends panel {
+	{
+		pos "0 0"
+		size "1024 90"
+	}
+
+	string txt_credits_caption
+	{
+		string		"_CREDITS"
+		pos			"675 32"
+		size		"100 30"
+		font		"f_big"
+	}
+
+	string txt_credits
+	{
+		tooltip		"_Organisation capital"
+		string		*cvar:mn_credits
+		pos			"780 32"
+		size		"130 30"
+		font		"f_big"
+		contentalign	ALIGN_UR
+	}
+
+	button bt_back_to_baseview
+	{
+		tooltip		"_Back to baseview"
+		background	"buttons/big_blue"
+		pos			"950 20"
+		size		"59 55"
+		icon		"icons/return"
+		onClick		{ cmd "ui_pop;" }
+	}
+
+}
+
+component cmpBaseHeader extends cmpDefBaseHeader
+{
+	{
+		pos "0 0"
+	}
+
+	textentry name
+	{
+		string		*cvar:mn_base_title
+		tooltip		"_Name of this base"
+		pos			"60 32"
+		size		"500 30"
+		font		"f_big"
+		onChange {
+			// stores the value of the cvar in the base structure
+			cmd	"base_changename"
+		}
+	}
+
+	zone wz_base
+	{
+		pos	"25 25"
+		size	"606 46"
+		onWheelUp	{ cmd "trans_emptyairstorage; ui_pop; mn_base_next;" }
+		onWheelDown	{ cmd "trans_emptyairstorage; ui_pop; mn_base_prev;" }
+	}
+
+	button bt_edit
+	{
+		tooltip	"_Rename your base"
+		icon	"icons/pen"
+		pos	"565 30"
+		size "35 35"
+		padding 0
+		onClick
+		{
+			call *node:parent.name@edit
+		}
+	}
+
+	button prev_base
+	{
+		tooltip	"_Switch to the previous base"
+		icon	"icons/prev"
+		pos		"30 30"
+		size	"30 30"
+		onClick	{ cmd "trans_emptyairstorage; ui_pop; mn_base_prev;" }
+		onWheelUp	{ cmd "trans_emptyairstorage; ui_pop; mn_base_next;" }
+		onWheelDown	{ cmd "trans_emptyairstorage; ui_pop; mn_base_prev;" }
+	}
+
+	button next_base
+	{
+		tooltip	"_Switch to the next base"
+		icon	"icons/next"
+		pos		"600 30"
+		size	"30 30"
+		onClick	{ cmd "trans_emptyairstorage; ui_pop; mn_base_next;" }
+		onWheelUp	{ cmd "trans_emptyairstorage; ui_pop; mn_base_next;" }
+		onWheelDown	{ cmd "trans_emptyairstorage; ui_pop; mn_base_prev;" }
+	}
+}
+
+
+/**
+ * button on popups
+ */
+component cmpPopupButton extends button
+{
+	color		"0 0.5 0 1"
+	selectcolor	"1 1 1 1"
+	font		"f_menu"
+	background		"ui/button_green_small"
+	size		"176 32"
+}
+
+/**
+ * Cancel button on popups
+ */
+component cmpCancelButton extends cmpPopupButton
+{
+	string		"_Cancel"
+	tooltip		"_Close this dialogue"
+}
+
+component cmpMapPanel extends panel
+{
+	{ }
+
+	// ===================
+	// PREVIEW
+	// ===================
+
+	string preview_label
+	{
+		string		"_Preview:"
+		pos			"10 0"
+		size		"256 20"
+	}
+
+	cmpMapImage mappic
+	{
+		src		*cvar:mn_mappic
+		pos			"20 30"
+	}
+	cmpMapImage mappic2
+	{
+		src		*cvar:mn_mappic2
+		pos			"155 30"
+	}
+	cmpMapImage mappic3
+	{
+		src		*cvar:mn_mappic3
+		pos			"290 30"
+	}
+
+	// ===================
+	// MAP
+	// ===================
+	string map_label
+	{
+		string		"_Map Name:"
+		pos			"10 155"
+		size		"220 20"
+	}
+	cmpMapSlot mapSlot
+	{
+		{
+			pos "140 150"
+		}
+	}
+
+	// =============================
+	// DAY/NIGHT STRING & SELECTBOX
+	// =============================
+	string daynight_str
+	{
+		string		"_Daytime Version:"
+		pos			"10 200"
+		size		"220 20"
+	}
+
+	selectbox daynight_box
+	{
+		{
+			tooltip		"_Select whether you want to play at day- or nighttime."
+			cvar		*cvar:mn_serverday
+			pos			"240 200"
+			size		"200 20"
+		}
+		option night
+		{
+			label	"_Night"
+			value	"0"
+		}
+		option day
+		{
+			label	"_Day"
+			value	"1"
+		}
+	}
+}
+
+component cmpLoadSlotPanel extends panel
+{
+	{
+		size		"228 34"
+		layout			LAYOUT_LEFT_RIGHT_FLOW
+		layoutMargin	1
+	}
+
+	data filename
+	{
+		string		""
+	}
+
+	data index
+	{
+		integer		-1
+	}
+
+	button button
+	{
+		background		"ui/button_green_verysmall"
+		color		"0 .78 0 1"
+		selectcolor	"1 1 1 1"
+		contentalign	ALIGN_CC
+		font		"f_verysmall"
+		size		"160 34"
+	}
+
+	button upload
+	{
+		background		"icons/upload"
+		tooltip		"_Upload"
+		size		"34 34"
+	}
+
+	button delete
+	{
+		size		"34 34"
+		icon 		"icons/delete"
+		tooltip		"_Delete this team"
+	}
+}
+
+component cmpSaveSlotPanel extends panel
+{
+	{
+		size		"228 34"
+		layout			LAYOUT_LEFT_RIGHT_FLOW
+		layoutMargin	1
+	}
+
+	data filename
+	{
+		string		""
+	}
+
+	data title
+	{
+		string		""
+	}
+
+	data date
+	{
+		string		""
+	}
+
+	data index
+	{
+		integer		-1
+	}
+
+	textentry name
+	{
+		background		"ui/button_green_verysmall"
+		color		"0 .78 0 1"
+		selectcolor	"1 1 1 1"
+		contentalign	ALIGN_CL
+		padding		8
+		font		"f_verysmall"
+		size		"160 34"
+		clickoutabort   true
+	}
+
+	button upload
+	{
+		background		"icons/upload"
+		tooltip		"_Upload"
+		size		"34 34"
+	}
+
+	button delete
+	{
+		size		"34 34"
+		icon 		"icons/delete"
+		tooltip		"_Delete this team"
+	}
+}
+
+component currentTeamMember extends panel
+{
+	{
+		size		"260 25"
+	}
+
+	string name
+	{
+		pos			"20 0"
+		color		"0 .78 0 1"
+		size		"260 25"
+		contentalign	ALIGN_CL
+	}
+
+	// TODO: head and skin
+}
+
+component cmpCurrentLoadedTeamPanel extends panel
+{
+	{
+		size	"210 216"
+	}
+
+	string title
+	{
+		pos				"0 0"
+		color			"0 .78 0 1"
+		size			"170 18"
+		contentalign	ALIGN_CC
+		string			"_Currently loaded"
+	}
+
+	panel soldierlist
+	{
+		pos				"0 26"
+		size			"170 190"
+		padding			4
+		layout			LAYOUT_TOP_DOWN_FLOW
+		wheelscrollable	true
+		onViewChange
+		{
+			*node:parent.soldierlist_scroll@fullsize = <fullsize>
+			*node:parent.soldierlist_scroll@current = <viewpos>
+			*node:parent.soldierlist_scroll@viewsize = <viewsize>
+		}
+	}
+
+	vscrollbar soldierlist_scroll
+	{
+		image		"ui/scrollbar_v_green"
+		pos			"190 26"
+		height		"190"
+		current		0
+		viewsize	4
+		fullsize	25
+		hidewhenunused	true
+		onChange
+		{
+			*node:parent.soldierlist@viewpos = <current>
+		}
+	}
+
+	/**
+	 * @brief Adds a member to the current loaded team list
+	 * @param <1> id
+	 * @param <2> Name
+	 * @param <3> Head model
+	 * @param <4> Head skin
+	 */
+	confunc team_memberadd
+	{
+		call *node:parent.soldierlist@createChild("member<1>", "currentTeamMember")
+		*node:parent.soldierlist.member<1>.name@string = <2>
+		// TODO: head and skin
+	}
+
+	/**
+	 * @brief Removes all entries from the current team list.
+	 */
+	confunc team_membersclear
+	{
+		call *node:parent.soldierlist@removeAllChild
+	}
+}
+
+component cmpTeamPanel extends panel
+{
+	{
+		pos			"0 50"
+		size		"480 550"
+	}
+
+	// ==================
+	// create new team
+	// ==================
+	button button_new
+	{
+		pos	"1 0"
+		size "440 40"
+		onClick	{ cmd "ui_push game_team_new_popup;" }
+		background	"ui/button_green_small"
+		font	"f_menusmall"
+		color	"0 0.5 0 1"
+		selectcolor "1 1 1 1"
+		string	"_Generate New Team"
+	}
+
+	// ================
+	// save team slots
+	// ================
+
+	panel slots
+	{
+		{
+			pos		"1 50"
+			size	"230 216"
+			layout			LAYOUT_TOP_DOWN_FLOW
+			layoutMargin	2
+			wheelscrollable	true
+
+			onViewChange {
+				*node:parent.slots_scroll@fullsize = <fullsize>
+				*node:parent.slots_scroll@current = <viewpos>
+				*node:parent.slots_scroll@viewsize = <viewsize>
+			}
+		}
+	}
+	vscrollbar slots_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"229 50"
+		height		"216"
+		hidewhenunused	true
+		onChange {
+			*node:parent.slots@viewpos = <current>
+		}
+	}
+
+	/**
+	 * @brief adds a new entry to the left slot
+	 * @param <1> the id
+	 * @param <2> the file name
+	 * @param <3> the slot name
+	 * @param <4> the team members
+	 * @param <5> true if user created, false if the save was delievered with the original game data
+	 */
+	confunc teamsaveslotadd
+	{
+		call *node:this.parent.slots@createChild("slot<1>", "cmpLoadSlotPanel")
+		*node:this.parent.slots.slot<1>.filename@string = "<2>"
+		*node:this.parent.slots.slot<1>.index@integer = <1>
+		*node:this.parent.slots.slot<1>.button@string = "<3> (<4>)"
+		*node:this.parent.slots.slot<1>.button@tooltip = "<3> (<4>)"
+		*node:this.parent.slots.slot<1>.button@onClick = { cmd "game_loadteam <node:this.parent.index@integer>;ui_push game_team_edit;" }
+		*node:this.parent.slots.slot<1>.upload@onClick = { cmd "web_uploadcgame 0 <node:this.parent.filename@string>;" }
+		*node:this.parent.slots.slot<1>.delete@onClick = { cmd "game_teamdelete <node:this.parent.filename@string>;game_teamcomments;" }
+		if (<5> == 0) {
+			*node:this.parent.slots.slot<1>.upload@invis = true
+			*node:this.parent.slots.slot<1>.delete@invis = true
+		}
+	}
+
+	confunc teamsaveslotsclear
+	{
+		call *node:this.parent.slots@removeAllChild
+	}
+
+	// ==================
+	// current team
+	// ==================
+
+	cmpCurrentLoadedTeamPanel currentLoaded
+	{
+		{
+			pos		"250 50"
+		}
+	}
+
+	// =======================
+	// team management buttons
+	// =======================
+
+	button button_download
+	{
+		pos	"0 270"
+		size "200 40"
+		tooltip	"_Download new teams"
+		onClick	{ cmd "ui_push cgame_download;" }
+		background	"ui/button_green_small"
+		font	"f_menusmall"
+		color	"0 0.5 0 1"
+		selectcolor "1 1 1 1"
+		string	"_Download"
+	}
+
+	button button_save
+	{
+		pos	"240 270"
+		size "200 40"
+		tooltip	"_Save the current team"
+		onClick	{ cmd "ui_push game_team_save_popup;" }
+		background	"ui/button_green_small"
+		font	"f_menusmall"
+		color	"0 0.5 0 1"
+		selectcolor "1 1 1 1"
+		string	"_Save Team"
+	}
+}
+
+component checkbox_blue extends checkbox
+{
+	iconChecked      "icons/checkbox_blue_checked"
+	iconUnchecked    "icons/checkbox_blue_unchecked"
+	iconIndeterminate "icons/checkbox_blue_indeterminate"
+	size "22 22"
+}
+
+component checkbox_green extends checkbox
+{
+	iconChecked      "icons/checkbox_green_checked"
+	iconUnchecked    "icons/checkbox_green_unchecked"
+	iconIndeterminate "icons/checkbox_green_indeterminate"
+	size "20 20"
+}
+
+component spinner_blue extends spinner
+{
+	topIcon	"ui/spinner_blue_up"
+	bottomIcon	"ui/spinner_blue_down"
+	size "15 19"
+}

@@ -1,0 +1,307 @@
+// ==================
+// MAILCLIENT MENU
+// ==================
+
+window mail
+{
+	// ==================
+	// background
+	// ==================
+
+	{
+		pos			"10 20"
+		size		"1000 700"
+		dragbutton	true
+		closebutton	true
+		background		"ui/popup_alpha_tile"
+		string		"*cvar:mn_mail_subject"
+	}
+
+	// ==================
+	// text and info
+	// ==================
+
+	text mail
+	{
+		dataid		TEXT_UFOPEDIA
+		pos			"50 200"
+		size		"904 480"
+		lineheight	24
+		tabwidth	100
+		onViewChange	{
+			*node:root.mail_scroll@fullsize = <fullsize>
+			*node:root.mail_scroll@current = <viewpos>
+			*node:root.mail_scroll@viewsize = <viewsize>
+		}
+	}
+
+	vscrollbar mail_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"960 208"
+		height		"470"
+		hidewhenunused true
+		onChange	{ *node:root.mail@viewpos = <current> }
+	}
+
+
+	image sender_slot
+	{
+		src	"ui/button_square"
+		pos		"62 82"
+		size	"64 64"
+		texh	"64 64"
+	}
+
+	model sender_body
+	{
+		{
+			visiblewhen "*cvar:mn_mail_sender_head ne \"\""
+			src	"civilians/male/body01"
+			anim	"stand_still"
+			angles	"0 85 90"
+			scale	"7.5 7.5 7.5"
+			pos		"63 83"
+			size	"62 62"
+			origin	"5 125 0"
+		}
+
+		model sender_head
+		{
+			src		*cvar:mn_mail_sender_head
+			tag		"tag_head"
+		}
+	}
+
+	text mail_header
+	{
+		dataid		TEXT_UFOPEDIA_MAILHEADER
+		pos			"150 70"
+		size		"824 120"
+		lineheight	"24"
+		rows		"5"
+		font		"f_small_bold"
+	}
+
+	/*
+	string date {
+		pos		"63 175"
+		size	"300 25"
+		string	"*cvar:mn_mail_date"
+	}
+	*/
+
+	func onWindowOpened
+	{
+		*node:root.mail@viewpos = 0
+		*node:root.mail_scroll@current = 0
+	}
+}
+
+component mailheader extends panel
+{
+	{
+		size			"890 28"
+		layout			LAYOUT_LEFT_RIGHT_FLOW
+		layoutMargin	10
+	}
+
+	image icon
+	{
+		src	""
+		size	"28 28"
+	}
+
+	panel header
+	{
+		{
+			size	"900 28"
+		}
+
+		data index
+		{
+			integer		-1
+		}
+
+		image background
+		{
+			src		"ui/mail_button"
+			texl	"0 0"
+			texh	"852 28"
+		}
+
+		string headline
+		{
+			string	""
+			pos		"10 2"
+			size	"660 24"
+			font	"f_small"
+		}
+
+		string date
+		{
+			string		""
+			pos			"690 2"
+			size		"100 24"
+			font		"f_small"
+		}
+	}
+}
+
+window mailclient
+{
+	/** @todo Remove me */
+	{ } // empty properties to fix parsing problem with "image" token (behaviour or property?)
+
+	// ==================
+	// background
+	// ==================
+
+	image background
+	{
+		src		"background/mail_bg"
+	}
+
+	// ==================
+	// text and info
+	// ==================
+
+	string mailclienthead
+	{
+		string		"_Mailclient"
+		pos			"355 30"
+		size		"290 30"
+		contentalign	ALIGN_CC
+		color		"0 .78 0 1"
+		font		"f_big"
+	}
+
+	string timehead
+	{
+		string		"_Time:"
+		pos			"710 36"
+		size		"100 20"
+		color		"0 .78 0 1"
+		font		"f_normal"
+	}
+	string time
+	{
+		string		*cvar:mn_maptime
+		pos			"820 36"
+		size		"150 20"
+		color		"0 .9 0 1"
+		font		"f_normal"
+		contentalign	ALIGN_CC
+	}
+
+	string datehead
+	{
+		string		"_Date:"
+		pos			"710 56"
+		size		"100 20"
+		color		"0 .78 0 1"
+		font		"f_normal"
+	}
+	string date
+	{
+		string		*cvar:mn_mapdate
+		pos			"820 56"
+		size		"150 20"
+		color		"0 .9 0 1"
+		font		"f_normal"
+		contentalign	ALIGN_CC
+	}
+
+	button mail_allread
+	{
+		icon		"icons/mail_read"
+		tooltip		"_Mark all messages read"
+		pos			"50 50"
+		size		"32 32"
+		padding		0
+		onClick		{ cmd "mn_mail_readall 0;" }
+	}
+
+	panel mails
+	{
+		{
+			pos				"50 130"
+			size			"890 570"
+			layout			LAYOUT_TOP_DOWN_FLOW
+			layoutMargin	10
+			ghost			true
+			wheelscrollable	true
+
+			onViewChange {
+				*node:root.mailclient_scroll@fullsize = <fullsize>
+				*node:root.mailclient_scroll@current = <viewpos>
+				*node:root.mailclient_scroll@viewsize = <viewsize>
+			}
+		}
+	}
+
+	/**
+	 * @brief Adds a new mail header entry to the mail panel
+	 * @param <1> index The index that can be used to reference a mail header entry
+	 * @param <2> headline The headline
+	 * @param <3> icon The icon of the mail entry
+	 * @param <4> 1=read 0=unread
+	 * @param <5> date The date the mail was sent
+	 */
+	confunc add_mail
+	{
+		call *node:root.mails@createChild("mail<1>", "mailheader")
+		*node:root.mails.mail<1>.header.index@integer = <1>
+
+		*node:root.mails.mail<1>.header.headline@string = <2>
+		*node:root.mails.mail<1>.header.headline@onClick = { cmd "mailclient_click <node:this.parent.index@integer>;" }
+
+		*node:root.mails.mail<1>.header.date@string = <5>
+		*node:root.mails.mail<1>.icon@src = <3>
+		if ( <4> eq 0 ) {
+			*node:root.mails.mail<1>.header.background@texl = "0 28"
+			*node:root.mails.mail<1>.header.background@texh	= "852 56"
+		}
+	}
+
+	/**
+	 * @brief Removes all dynamic mail nodes
+	 */
+	confunc clear_mails
+	{
+		call *node:root.mails@removeAllChild
+	}
+
+	vscrollbar mailclient_scroll
+	{
+		image		"ui/scrollbar_v_green"
+		pos			"950 125"
+		height		560
+		current		0
+		viewsize	15
+		fullsize	50
+		hidewhenunused true
+		onChange		{
+			*node:root.mails@viewpos = <current>
+		}
+	}
+
+	button button_exit
+	{
+		tooltip		"_Leave mailclient"
+		background	"buttons/large_blue"
+		pos			"920 720"
+		size		"64 37"
+		icon		"icons/return"
+		onClick		{ cmd "ui_pop;" }
+	}
+
+	func onWindowOpened
+	{
+		cmd "ufopedia_openmail;"
+	}
+
+	func onWindowActivate
+	{
+		cmd "ufopedia_openmail;"
+	}
+}

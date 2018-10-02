@@ -348,7 +348,7 @@ item laser_ammo_stun
 
 item laser_ammo_shock
 {
-	name			"_XAW95 Magazine"
+	name			"Cartouche paralysante D-F"
 	model			"weapons/flashbang/laserrifle_clip"
 	type			"ammo"
 	animationindex	0

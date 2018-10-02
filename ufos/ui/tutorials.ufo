@@ -1,0 +1,63 @@
+// ==================
+// TUTORIALS MENU
+// ==================
+
+window tutorials
+{
+	/** @todo Remove me */
+	{ } // empty properties to fix parsing problem with "image" token (behaviour or property?)
+
+	// ==================
+	// background
+	// ==================
+
+	image background
+	{
+		src	"background/main_bg"
+	}
+
+	string headline
+	{
+		string  "_Tutorials"
+		pos             "630 170"
+		font "f_big"
+	}
+
+	cmpMenuButton button_back
+	{
+		pos	"640 520"
+		onClick	{ cmd "ui_pop;" }
+		string	"_Back"
+	}
+
+	textlist tutoriallist
+	{
+		dataid		TEXT_LIST
+		pos			"640 220"
+		size		"240 280"
+		lineheight	"20"
+		rows		"14"
+		onClick		{ cmd "tutoriallist_click <lineselected>;" }
+		onViewChange	{
+			*node:root.tutoriallist_scroll@fullsize = <fullsize>
+			*node:root.tutoriallist_scroll@current = <viewpos>
+			*node:root.tutoriallist_scroll@viewsize = <viewsize>
+		}
+	}
+
+	vscrollbar tutoriallist_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"885 220"
+		height		"280"
+		current		0
+		viewsize	14
+		fullsize	14
+		hidewhenunused true
+		onChange	{ *node:root.tutoriallist@viewpos = <current> }
+	}
+
+	func onWindowOpened
+	{
+		cmd	"gettutorials;"
+	}
+}

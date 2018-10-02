@@ -59,8 +59,8 @@ item assault_ammo
 			range		100
 			shots		1
 			ammo		1
-			time		9
-			damage		"45 7"
+			time		8
+			damage		"55 7"
 			dmgweight	"normal_medium"
 			reaction	true
 		}
@@ -81,7 +81,7 @@ item assault_ammo
 			shots		1
 			ammo		1
 			time		12
-			damage		"45 7"
+			damage		"55 7"
 			dmgweight	"normal_medium"
 			reaction	false
 		}
@@ -104,7 +104,7 @@ item assault_ammo
 			ammo				3
 			delaybetweenshots	10
 			time				12
-			damage				"45 7"
+			damage				"55 7"
 			dmgweight			"normal_medium"
 			reaction			true
 		}
@@ -127,7 +127,7 @@ item assault_ammo
 			ammo				8
 			delaybetweenshots	10
 			time				22
-			damage				"45 7"
+			damage				"55 7"
 			dmgweight			"normal_medium"
 			reaction	false
 		}
@@ -153,7 +153,7 @@ item assault_ammo
 			shots		1
 			ammo		1
 			time		9
-			damage		"45 7"
+			damage		"55 7"
 			dmgweight	"normal_medium"
 			reaction	true
 		}
@@ -174,7 +174,7 @@ item assault_ammo
 			shots		1
 			ammo		1
 			time		12
-			damage		"45 7"
+			damage		"55 7"
 			dmgweight	"normal_medium"
 			reaction	false
 		}
@@ -196,7 +196,7 @@ item assault_ammo
 			ammo				3
 			delaybetweenshots	5
 			time				12
-			damage				"45 7"
+			damage				"55 7"
 			dmgweight			"normal_medium"
 			reaction			true
 		}
@@ -218,7 +218,7 @@ item assault_ammo
 			ammo				8
 			delaybetweenshots	18
 			time				22
-			damage				"45 7"
+			damage				"55 7"
 			dmgweight			"normal_medium"
 			reaction	false
 		}
@@ -291,7 +291,7 @@ item machinegun_ammo
 			ammo				5
 			delaybetweenshots	10
 			time				14
-			damage				"60 5"
+			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			true
 		}
@@ -314,7 +314,7 @@ item machinegun_ammo
 			ammo				15
 			delaybetweenshots	10
 			time				26
-			damage				"60 5"
+			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			true
 		}
@@ -337,7 +337,7 @@ item machinegun_ammo
 			ammo				20
 			delaybetweenshots	10
 			time				26
-			damage				"60 5"
+			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			false
 		}
@@ -432,7 +432,7 @@ item sniper_ammo
 			shots		1
 			ammo		1
 			time		14
-			damage		"130 20"
+			damage		"125 20"
 			dmgweight	"normal_medium"
 			reaction	true
 			throughwall 1
@@ -454,7 +454,7 @@ item sniper_ammo
 			shots		1
 			ammo		1
 			time		20
-			damage		"130 20"
+			damage		"125 20"
 			dmgweight	"normal_medium"
 			reaction	true
 			throughwall 1
@@ -476,11 +476,11 @@ item sniper_ammo
 			speed		3600
 			spread		"1.6 1.6"
 			crouch		0.9
-			range		70
+			range		65
 			shots		1
 			ammo		1
 			time		7
-			damage		"130 20"
+			damage		"125 20"
 			dmgweight	"normal_heavy"
 			reaction	true
 			throughwall 2
@@ -498,11 +498,11 @@ item sniper_ammo
 			speed		3600
 			spread		"1 1"
 			crouch		0.8
-			range		70
+			range		65
 			shots		1
 			ammo		1
 			time		12
-			damage		"130 20"
+			damage		"125 20"
 			dmgweight	"normal_heavy"
 			reaction	false
 			throughwall 2
@@ -1093,7 +1093,7 @@ item shotgun2
 
 item shotgun2_slug_ammo
 {
-	name			"_Saboted Slugs"
+	name			"Chevrotine"
 	model			"weapons/shotgun/shotgun_clip"
 	type			"ammo"
 	animationindex	0
@@ -1129,7 +1129,7 @@ item shotgun2_slug_ammo
 			ammo				1
 			delaybetweenshots	0
 			time				5
-			damage				"44 7"
+			damage				"41 6"
 			dmgweight			"normal_spray"
 			reaction			true
 		}
@@ -1152,7 +1152,7 @@ item shotgun2_slug_ammo
 			ammo				2
 			delaybetweenshots	0
 			time				5
-			damage				"44 7"
+			damage				"41 6"
 			dmgweight			"normal_spray"
 			reaction			true
 		}

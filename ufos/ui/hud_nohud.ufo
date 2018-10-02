@@ -1,0 +1,27 @@
+// ==================
+// EMPTY HUD
+// ==================
+// with console command forwarding
+
+window hud_nohud extends hud
+{
+	{
+		fill		true
+		starlayout	true
+	}
+
+	// ==================
+	// render rectangle
+	// ==================
+	battlescape render
+	{
+		align	LAYOUTALIGN_FILL
+	}
+
+	confunc hidehud {
+		if (*cvar:cl_onbattlescape == 1) {
+			cmd "ui_push hud_nohud"
+		}
+	}
+
+}

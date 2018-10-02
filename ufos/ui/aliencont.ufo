@@ -1,0 +1,381 @@
+// ============================
+// BASE ALIEN CONTAINMENU MENU
+// ============================
+
+// ===========================
+// Aliencontainment Component
+// ===========================
+component cmpAlienContainment extends image {
+	{
+		src		"ui/hosp_button_green"
+		onClick {
+			cmd "ui_aliencont_select <node:this.team_id@string>;"
+		}
+		onRClick {
+			cmd "ui_aliencont_select <node:this.team_id@string>;"
+			cmd "ui_push ufopedia <node:this.tech_id@string>;"
+		}
+		onMouseEnter {
+			if ( exists *node:this ) {
+				*node:this@src = "ui/hosp_button_light"
+			}
+		}
+		onMouseLeave {
+			if ( exists *node:this ) {
+				*node:this@src = "ui/hosp_button_green"
+			}
+		}
+	}
+	data team_id {
+		string	""
+	}
+	data tech_id {
+		string	""
+	}
+	data tech_image {
+		string	""
+	}
+	data alive {
+		integer	0
+	}
+	data dead {
+		integer	0
+	}
+
+	button icon {
+		pos		"247 11"
+		size	"40 40"
+		padding	0
+	}
+	zone kill_zone		{
+		pos			"247 11"
+		size		"40 40"
+		tooltip		"_Kill this alien"
+		invis		true
+		onClick {
+			cmd "ui_aliencont_killone <node:parent.tech_id@string>;"
+		}
+		onMouseEnter {
+			if ( exists *node:parent.icon ) {
+				*node:parent.icon@icon = "icons/alien_kill_hovered"
+			}
+		}
+		onMouseLeave {
+			if ( exists *node:parent.icon ) {
+				*node:parent.icon@icon = "icons/alien_kill"
+			}
+		}
+	}
+	zone autopsy_zone {
+		pos			"247  11"
+		size		"40 40"
+		tooltip		"_Start autopsy"
+		invis		true
+		onClick {
+			if ( exists *node:parent.tech_progress ) {
+				if ( *node:parent.tech_progress@current < 100 ) {
+					cmd "ui_push research;"
+				} else {
+					cmd "ui_push ufopedia <node:parent.tech_id@string>;"
+				}
+			}
+		}
+		onMouseEnter {
+			if ( exists *node:parent.icon ) {
+				*node:parent.icon@icon = "icons/alien_surgery_hovered"
+			}
+		}
+		onMouseLeave {
+			if ( exists *node:parent.icon ) {
+				*node:parent.icon@icon = "icons/alien_surgery"
+			}
+		}
+	}
+	string name {
+		pos			"15 10"
+		color		"1 1 1 1"
+		size		"220 16"
+		font		"f_small_bold"
+		ghost		true
+	}
+	string status {
+		pos			"15 35"
+		color		"1 1 1 1"
+		size		"220 16"
+		ghost		true
+	}
+	bar tech_progress {
+		pos			"22 65"
+		size		"257 6"
+		color		"0 .8 0 1"
+		max			"100"
+		disabled	true
+	}
+}
+
+window aliencont
+{
+	{
+		background	"background/base_bg"
+	}
+
+	cmpBaseHeader baseHeader {}
+
+	// info window (top left)
+	panel baseinfo {
+		{
+			pos		"11 93"
+			size	"333 145"
+			background	"ui/panel_grey_green_large"
+		}
+
+		// base info (aliencont capacity)
+		string txt_base_info {
+			string		"_Live Alien Containment Info"
+			pos			"19 25"
+			size		"296 20"
+			font		"f_small_bold"
+			contentalign	ALIGN_CC
+		}
+		string txt_alc_limit_prefix {
+			string		"_Base capacity:"
+			pos			"37 49"
+			size		"265 20"
+			font		"f_small"
+			contentalign	ALIGN_CL
+		}
+		string txt_alc_limit {
+			pos			"37 49"
+			size		"265 20"
+			font		"f_small"
+			contentalign	ALIGN_CR
+		}
+		image alc_img {
+			pos			"40 66"
+			src			"ui/bar_rahmen"
+		}
+		bar alc_bar {
+			pos			"50 71"
+			size		"236 6"
+			color		"0 .8 0 1"
+			readonly	true
+		}
+	}
+
+	// kill living aliens button
+	button bt_alc_killaliens {
+		tooltip		"_Kill all aliens in this base"
+		pos			"275 165"
+		size		"64 64"
+		icon		"icons/killalien"
+		disabled	true
+		onClick {
+			cmd "ui_aliencont_killall;"
+		}
+	}
+
+	// alien info window (top right)
+	panel raceinfo {
+		{
+			pos		"347 93"
+			size	"333 145"
+			background	"ui/panel_grey_green_large"
+		}
+
+		string txt_race_info {
+			pos			"19 25"
+			size		"296 20"
+			font		"f_small_bold"
+			contentalign	ALIGN_CC
+		}
+		string txt_alc_alive {
+			string		"_Alive:"
+			pos			"50 49"
+			size		"100 20"
+			font		"f_small"
+		}
+		string alive {
+			string		"0"
+			pos			"160 49"
+			size		"125 20"
+			font		"f_small"
+			contentalign	ALIGN_UR
+		}
+		string txt_alc_dead	{
+			string		"_Dead:"
+			pos			"50 74"
+			size		"100 20"
+			font		"f_small"
+		}
+		string dead	{
+			string		"0"
+			pos			"160 74"
+			size		"125 20"
+			font		"f_small"
+			contentalign	ALIGN_UR
+		}
+	}
+
+	// Alien Containment Slots Panel
+	data selected {
+		string	""
+	}
+
+	panel ac {
+		{
+			pos "11 245"
+			size "670 513"
+			background	"ui/panel_grey_green_large"
+		}
+
+		panel species {
+			pos 		"20 20"
+			size		"610 473"
+			layout		LAYOUT_COLUMN
+			layoutColumns	2
+			layoutMargin	5
+			padding		2
+			wheelscrollable	true
+
+			onViewChange	{
+				*node:parent.species_scroll@fullsize = <fullsize>
+				*node:parent.species_scroll@current = <viewpos>
+				*node:parent.species_scroll@viewsize = <viewsize>
+			}
+		}
+		vscrollbar species_scroll {
+			image		"ui/scrollbar_v_green"
+			pos			"630 20"
+			height		"473"
+			onChange	{
+				*node:parent.species@viewpos = <current>
+			}
+		}
+	}
+
+	/**
+	 * @brief Clear UI
+	 */
+	confunc ui_aliencont_clear {
+		*node:root.bt_alc_killaliens@disabled = true
+		call *node:root.ac.species@removeAllChild
+	}
+
+	/**
+	 * @brief Select an alien team on the UI (updates alive/dead counts and image)
+	 * @param[in] <1> technology ID
+	 */
+	confunc ui_aliencont_select {
+		*node:root.selected@string = "<1>"
+		if ( *node:root.selected@string ne "" ) {
+			// Update alive and dead counters
+			/** @todo temp-cvar magic was required for a simple assignment as "<foo<bar>>" isn't supported */
+			// Alien name
+			*cvar:ui_aliencont_select_temp = *node:root.ac.species.alien_<1>.name@string
+			*node:root.raceinfo.txt_race_info@string = "<cvar:ui_aliencont_select_temp>"
+			// Alive / dead counts
+			*cvar:ui_aliencont_select_temp = *node:root.ac.species.alien_<1>.alive@integer
+			*node:root.raceinfo.alive@string = "<cvar:ui_aliencont_select_temp>"
+			*cvar:ui_aliencont_select_temp = *node:root.ac.species.alien_<1>.dead@integer
+			*node:root.raceinfo.dead@string = "<cvar:ui_aliencont_select_temp>"
+			// Update alien image
+			*cvar:ui_aliencont_select_temp = *node:root.ac.species.alien_<1>.tech_image@string
+			*node:root.alc_alien_panel.ai@src = "<cvar:ui_aliencont_select_temp>"
+			delete *cvar:ui_aliencont_select_temp
+		} else {
+			*node:root.raceinfo.txt_race_info@string = ""
+			*node:root.raceinfo.alive@string = "0"
+			*node:root.raceinfo.dead@string = "0"
+			*node:root.alc_alien_panel.ai@src = ""
+		}
+	}
+
+	/**
+	 * @brief Adds alien data to UI
+	 * @param[in] <1> teamDef ID
+	 * @param[in] <2> Translated teamDef name
+	 * @param[in] <3> technology ID for the team
+	 * @param[in] <4> Image (technology)
+	 * @param[in] <5> Translated Containment status for the alien
+	 * @param[in] <6> Research progress (percent, float)
+	 * @param[in] <7> Number of alive aliens
+	 * @param[in] <8> Number of dead bodies
+	 * @note The function does a bit black magic due to the hack of multiple team definitions per race (taman_light, taman, etc)
+	 */
+	confunc ui_aliencont_add {
+		/* if type is in the list adjust values, otherwise add new entry */
+		call *node:root.ac.species@createChild("alien_<1>", "cmpAlienContainment")
+		*node:root.ac.species.alien_<1>.team_id@string = "<1>"
+		*node:root.ac.species.alien_<1>.name@string = "<2>"
+		*node:root.ac.species.alien_<1>.tech_id@string = "<3>"
+		*node:root.ac.species.alien_<1>.tech_image@string = "<4>"
+		*node:root.ac.species.alien_<1>.status@string = "<5>"
+		*node:root.ac.species.alien_<1>.tech_progress@current = <6>
+		*node:root.ac.species.alien_<1>.alive@integer = <7>
+		*node:root.ac.species.alien_<1>.dead@integer = <8>
+		/* if there is any alive aliens, enable killing them */
+		if ( *node:root.ac.species.alien_<1>.alive@integer > 0 ) {
+			*node:root.bt_alc_killaliens@disabled = false
+
+			*node:root.ac.species.alien_<1>.icon@icon = "icons/alien_kill"
+			*node:root.ac.species.alien_<1>.icon@tooltip = "_Kill this alien"
+			*node:root.ac.species.alien_<1>.kill_zone@invis = false
+			*node:root.ac.species.alien_<1>.autopsy_zone@invis = true
+		} else {
+			*node:root.ac.species.alien_<1>.icon@icon = "icons/alien_surgery"
+			*node:root.ac.species.alien_<1>.icon@tooltip = "_Autopsy"
+			*node:root.ac.species.alien_<1>.kill_zone@invis = true
+			*node:root.ac.species.alien_<1>.autopsy_zone@invis = false
+		}
+		/* if none selected, select this */
+		if ( ( *node:root.selected@string eq "" ) || ( *node:root.selected@string eq "<1>" ) ) {
+			call *node:root.ui_aliencont_select ( <1> )
+		}
+	}
+
+	/**
+	 * @brief Updates Alien Containment capacities on UI
+	 * @param[in] <1> Current used capacity
+	 * @param[in] <2> Maximal capacity
+	 */
+	confunc ui_aliencont_cap {
+		*node:root.baseinfo.txt_alc_limit@string = "<1> / <2>"
+		*node:root.baseinfo.alc_bar@max = <2>
+		if ( <1> <= <2>) {
+			*node:root.baseinfo.alc_bar@current = <1>
+			*node:root.baseinfo.alc_bar@color = "0 .8 0 1"
+		} else {
+			*node:root.baseinfo.alc_bar@current = <2>
+			*node:root.baseinfo.alc_bar@color = "1 0 0 1"
+		}
+	}
+
+	// ==========================
+	// Right Panel (Alien image)
+	// ==========================
+	panel alc_alien_panel
+	{
+		{
+			pos		"700 93"
+			size	"314 665"
+			background	"ui/panel_grey_green_large"
+		}
+
+		image ai {
+			pos				"18 19"
+			size			"279 626"
+			preventratio	true
+			contentalign	ALIGN_CC
+		}
+	}
+
+	// ================================================================================
+	// init
+	// ================================================================================
+	func onWindowOpened
+	{
+		*node:root.selected@string = ""
+		cmd "ui_aliencont_init;"
+		*cvar:mn_lastsubmenu = "aliencont"
+	}
+}

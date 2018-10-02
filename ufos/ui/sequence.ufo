@@ -1,0 +1,43 @@
+// ==================
+// SEQUENCE MENU
+// ==================
+
+/**
+ * @note We should not use that window, but a specific window for each kind of sequence
+ */
+window sequence
+{
+	{
+		starlayout	true
+		fill		true
+	}
+
+	sequence seq
+	{
+		align		LAYOUTALIGN_FILL
+		onClick		{ call *node:root.next }
+		onEnd {
+			cmd "ui_close sequence"
+		}
+	}
+
+	confunc seq_start {
+		*node:root.seq@src = <1>
+		cmd "ui_push sequence"
+	}
+
+	confunc seq_end {
+		cmd "ui_close sequence"
+	}
+
+	func onWindowOpened {
+		*cvar:sequence_old_scr_showcursor = *cvar:scr_showcursor
+		*cvar:scr_showcursor = 0
+	}
+
+	func onWindowClosed {
+		*cvar:scr_showcursor = *cvar:sequence_old_scr_showcursor
+		delete *cvar:sequence_old_scr_showcursor
+	}
+
+}

@@ -1,0 +1,634 @@
+// ==================
+// CAMPAIGN MENU
+// ==================
+
+window campaign {
+	{
+		background	"background/options_bg"
+	}
+
+	string version {
+		string		*cvar:version
+		pos			"10 744"
+		size		"550 20"
+	}
+
+	string c_headline {
+		string		"_Campaigns"
+		pos			"640 80"
+		font		"f_big"
+	}
+
+	cmpMenuButton c_button_start {
+		pos			"80 170"
+		string		"_Start campaign"
+		tooltip		"_Start a new singleplayer campaign."
+
+		onClick	{
+			cmd "cp_start <cvar:cp_campaign>;"
+		}
+	}
+	cmpMenuButton button_load {
+		string		"_Load"
+		pos			"80 240"
+		onClick	{
+			cmd "ui_push load;"
+		}
+	}
+	cmpMenuButton button_download {
+		string	"_Download"
+		tooltip	"_Download savegames"
+		pos	"80 310"
+		onClick	{
+			cmd "ui_push cgame_download;"
+		}
+	}
+	cmpMenuButton button_continue {
+		string		"_Continue"
+		tooltip		"_Load last saved game or continue playing."
+		pos			"640 380"
+		invis		true
+		onClick	{
+			cmd "game_continue;"
+		}
+	}
+	cmpMenuButton c_button_exit {
+		string		"_Back"
+		pos			"80 470"
+		onClick	{
+			cmd "ui_pop;"
+		}
+	}
+
+	optionlist campaignlist {
+		dataid		OPTION_CAMPAIGN_LIST
+		cvar		*cvar:cp_campaign
+		pos			"500 140"
+		size		"400 120"
+		color		"0.60 0.60 0.60 1"
+		selectcolor	"1 1 1 1"
+		padding		6
+
+		onChange {
+			cmd "cp_getdescription <cvar:cp_campaign>;"
+		}
+		onViewChange	{
+			*node:root.campaignlist_scroll@fullsize = <fullsize>
+			*node:root.campaignlist_scroll@current = <viewpos>
+			*node:root.campaignlist_scroll@viewsize = <viewsize>
+		}
+	}
+	vscrollbar campaignlist_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"905 140"
+		height		"120"
+		current		0
+		viewsize	6
+		fullsize	6
+		hidewhenunused true
+		onChange	{
+			*node:root.campaignlist@viewpos = <current>
+		}
+	}
+
+	text campaign_desc
+	{
+		dataid		TEXT_STANDARD
+		pos			"500 320"
+		size		"415 360"
+		lineheight	20
+		rows		18
+		onViewChange {
+			*node:root.campaign_desc_scroll@fullsize = <fullsize>
+			*node:root.campaign_desc_scroll@current = <viewpos>
+			*node:root.campaign_desc_scroll@viewsize = <viewsize>
+		}
+	}
+	vscrollbar campaign_desc_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"923 320"
+		height		360
+		current		0
+		viewsize	19
+		fullsize	19
+		hidewhenunused true
+		onChange	{
+			*node:root.campaign_desc@viewpos = <current>
+		}
+	}
+
+	func onWindowOpened
+	{
+		if ( ! exists *cvar:cp_campaign ) {
+			*cvar:cp_campaign = "main"
+		}
+		if ( exists *cvar:mn_lastsave ) {
+			*node:root.button_continue@invis = false
+		} else {
+			*node:root.button_continue@invis = true
+		}
+
+		cmd "game_setmode;cp_getcampaigns;cp_getdescription <cvar:cp_campaign>;"
+	}
+}
+
+window staticcampaign extends campaign
+{
+}
+
+window campaign_main
+{
+	{
+		background	"background/main_bg"
+	}
+
+	string version {
+		string		*cvar:version
+		pos			"10 744"
+		size		"550 20"
+	}
+
+	cmpMenuButton button_continue {
+		string		"_Continue"
+		tooltip		"_Leave this menu and continue playing."
+		pos			"640 170"
+		onClick		{ cmd "game_continue;" }
+	}
+	cmpMenuButton button_load {
+		string		"_Load"
+		pos			"640 240"
+		onClick		{ cmd "ui_push load;" }
+	}
+	cmpMenuButton button_save {
+		string		"_Save"
+		pos			"640 310"
+		onClick		{ cmd "ui_push save;" }
+	}
+	cmpMenuButton button_options {
+		string		"_Options"
+		pos			"640 380"
+		onClick		{ cmd "ui_push options;" }
+	}
+	cmpMenuButton button_back {
+		string		"_Exit"
+		pos			"640 520"
+		onClick {
+			if ( *cvar:mn_fastexit == 1 ) {
+				cmd "game_exit;"
+			} else {
+				cmd "ui_push popup_exit_confirmation;"
+			}
+		}
+	}
+}
+
+// ==================
+// QUICK LOAD MENU
+// ==================
+
+window quickload
+{
+	{
+		string		"_Reload campaign"
+		pos			"264 262"
+		size		"496 247"
+		background		"ui/popup_alpha_tile"
+		dragbutton	true
+		closebutton	true
+	}
+
+	string name_label {
+		string		"_Are you sure that you really want to reload the last automatically saved campaign state?"
+		pos			"26 58"
+		size		"440 104"
+		longlines	LONGLINES_WRAP
+	}
+
+	cmpPopupButton button_go {
+		string		"_Load"
+		pos			"266 188"
+		onClick		{ cmd "ui_pop;game_quickload;" *cvar:mn_fastexit = 1; }
+	}
+}
+
+// ==================
+// LOAD MENU
+// ==================
+
+window load
+{
+	{
+		background	"background/main_bg"
+	}
+
+	string version {
+		string		*cvar:version
+		pos			"10 744"
+		size		"550 20"
+	}
+
+	string headline {
+		string		"_Load"
+		pos			"610 170"
+		size		"310 30"
+		contentalign	ALIGN_UC
+		font		"f_big"
+	}
+	panel slots
+	{
+		{
+			pos		"640 200"
+			size	"230 296"
+			layout			LAYOUT_TOP_DOWN_FLOW
+			layoutMargin	2
+			wheelscrollable	true
+
+			onViewChange {
+				*node:parent.slots_scroll@fullsize = <fullsize>
+				*node:parent.slots_scroll@current = <viewpos>
+				*node:parent.slots_scroll@viewsize = <viewsize>
+			}
+		}
+
+		cmpLoadSlotPanel slot0 {
+		}
+
+		cmpLoadSlotPanel slot1 {
+		}
+
+		cmpLoadSlotPanel slot2 {
+		}
+
+		cmpLoadSlotPanel slot3 {
+		}
+
+		cmpLoadSlotPanel slot4 {
+		}
+
+		cmpLoadSlotPanel slot5 {
+		}
+
+		cmpLoadSlotPanel slot6 {
+		}
+
+		cmpLoadSlotPanel slot7 {
+		}
+	}
+	vscrollbar slots_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"229 50"
+		height		"216"
+		hidewhenunused	true
+		onChange {
+			*node:parent.slots@viewpos = <current>
+		}
+	}
+
+	/**
+	 * @param[in] <1> id of the savegame slot
+	 * @param[in] <2> name of the savegame slot
+	 * @param[in] <3> game date of the savegame slot
+	 * @param[in] <4> real date of the savegame slot
+	 * @param[in] <5> filename
+	 */
+	confunc update_load_game_info {
+		//call *node:this.parent.slots@createChild("slot<1>", "cmpLoadSlotPanel")
+		*node:this.parent.slots.slot<1>.filename@string = <5>
+		*node:this.parent.slots.slot<1>.index@integer = <1>
+		if ( "<3>" ne "" ) {
+			*node:this.parent.slots.slot<1>.button@string = "<2> - <3>"
+		} else {
+			*node:this.parent.slots.slot<1>.button@string = "<2>"
+		}
+		*node:this.parent.slots.slot<1>.button@tooltip = <4>
+		*node:this.parent.slots.slot<1>.button@onClick = {
+			cmd "game_load slot<node:this.parent.index@integer>; game_timestop;"
+			*cvar:mn_fastexit = 1
+		}
+
+		if ( "<5>" eq "" ) {
+			*node:this.parent.slots.slot<1>.upload@invis = true
+		} else  {
+			*node:this.parent.slots.slot<1>.upload@onClick = {
+				cmd "web_uploadcgame 0 <node:this.parent.filename@string>;"
+			}
+			*node:this.parent.slots.slot<1>.upload@invis = false
+		}
+		*node:this.parent.slots.slot<1>.delete@invis = true
+	}
+
+	cmpMenuButton button_back {
+		string		"_Back"
+		pos			"640 520"
+		onClick {
+			cmd "ui_pop;"
+		}
+	}
+
+	func onWindowOpened {
+		cmd "game_comments load;"
+	}
+}
+
+// ==================
+// SAVE MENU
+// ==================
+
+window save {
+	{
+		background	"background/main_bg"
+	}
+
+	string version {
+		string		*cvar:version
+		pos			"10 744"
+		size		"550 20"
+	}
+
+	string headline {
+		string		"_Save"
+		pos			"610 170"
+		size		"310 30"
+		contentalign	ALIGN_UC
+		font		"f_big"
+	}
+
+	panel slots
+	{
+		{
+			pos		"640 200"
+			size	"230 296"
+			layout			LAYOUT_TOP_DOWN_FLOW
+			layoutMargin	2
+			wheelscrollable	true
+
+			onViewChange {
+				*node:parent.slots_scroll@fullsize = <fullsize>
+				*node:parent.slots_scroll@current = <viewpos>
+				*node:parent.slots_scroll@viewsize = <viewsize>
+			}
+		}
+		cmpSaveSlotPanel slot0 {
+		}
+
+		cmpSaveSlotPanel slot1 {
+		}
+
+		cmpSaveSlotPanel slot2 {
+		}
+
+		cmpSaveSlotPanel slot3 {
+		}
+
+		cmpSaveSlotPanel slot4 {
+		}
+
+		cmpSaveSlotPanel slot5 {
+		}
+
+		cmpSaveSlotPanel slot6 {
+		}
+
+		cmpSaveSlotPanel slot7 {
+		}
+	}
+	vscrollbar slots_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"229 50"
+		height		"216"
+		hidewhenunused	true
+		onChange {
+			*node:parent.slots@viewpos = <current>
+		}
+	}
+
+	/**
+	 * @param[in] <1> id of the savegame slot
+	 * @param[in] <2> name of the savegame slot
+	 * @param[in] <3> game date of the savegame slot
+	 * @param[in] <4> real date of the savegame slot
+	 * @param[in] <5> filename
+	 */
+	confunc update_save_game_info {
+		//call *node:this.parent.slots@createChild("slot<1>", "cmpSaveSlotPanel")
+		*node:this.parent.slots.slot<1>.filename@string = <5>
+		*node:this.parent.slots.slot<1>.title@string = <2>
+		*node:this.parent.slots.slot<1>.date@string = <3>
+		*node:this.parent.slots.slot<1>.index@integer = <1>
+		*node:this.parent.slots.slot<1>.name@string = *cvar:mn_slot<1>
+		if ( "<3>" ne "" ) {
+			*cvar:mn_slot<1> = "<2> <3>"
+		} else {
+			*cvar:mn_slot<1> = "<2>"
+		}
+		*node:this.parent.slots.slot<1>.name@tooltip = <4>
+		*node:this.parent.slots.slot<1>.name@onClick = {
+			*cvar:mn_slot<node:this.parent.index@integer> = <node:this.parent.title@string>
+		}
+		*node:this.parent.slots.slot<1>.name@onAbort = {
+			if (<node:this.parent.date@string> ne "") {
+				*cvar:mn_slot<node:this.parent.index@integer> = "<node:this.parent.title@string> <node:this.parent.date@string>"
+			} else {
+				*cvar:mn_slot<node:this.parent.index@integer> = "<node:this.parent.title@string>"
+			}
+		}
+		*node:this.parent.slots.slot<1>.name@onChange = {
+			cmd "game_save \"slot<node:this.parent.index@integer>\" \"<node:this.parent.name@string>\";"
+			*cvar:mn_fastexit = 1
+		}
+
+		*node:this.parent.slots.slot<1>.upload@invis = true
+		*node:this.parent.slots.slot<1>.delete@invis = true
+	}
+
+	cmpMenuButton button_back {
+		string		"_Back"
+		pos			"640 520"
+		onClick		{ cmd "ui_pop;" }
+	}
+
+	func onWindowOpened {
+		cmd "game_comments save;"
+	}
+}
+
+// ==================
+// LOST GAME MENU
+// ==================
+
+window lostgame
+{
+	{
+		background	"background/losegame_bg"
+	}
+
+	string title {
+		string		"_You've lost the game"
+		pos			"12 20"
+		size		"1000 35"
+		font		"f_menubig"
+		contentalign	ALIGN_UC
+		color		"0 0.8 0 1"
+	}
+
+	string lostgame_click {
+		string		"_Click to continue"
+		pos			"814 750"
+		size		"200 20"
+		font		"f_verysmall"
+		contentalign	ALIGN_UR
+		color		"0 0.8 0 0.9"
+		ghost		true
+	}
+
+	zone leave {
+		pos "0 0"
+		size "1024 768"
+		onClick {
+			cmd "initmainui;"
+		}
+	}
+
+	// reason why you've lost
+	text reason {
+		dataid	TEXT_STANDARD
+		color		"0 0.8 0 0.9"
+		bgcolor		"0.2 0.2 0.2 0.4"
+		contentalign	ALIGN_UC
+		pos			"30 600"
+		size		"960 140"
+		lineheight	"20"
+		font		"f_normal"
+		onClick		{ call *node:parent.leave@click }
+		onViewChange	{
+			*node:root.reason_scroll@fullsize = <fullsize>
+			*node:root.reason_scroll@current = <viewpos>
+			*node:root.reason_scroll@viewsize = <viewsize>
+		}
+	}
+	vscrollbar reason_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"992 600"
+		height		"140"
+		current		0
+		viewsize	12
+		fullsize	12
+		hidewhenunused true
+		onClick		{ call *node:parent.leave@click }
+		onChange	{ *node:root.reason@viewpos = <current> }
+	}
+
+	func onWindowOpened {
+		cmd "music_stop;snd_music Crystan-LooseGame;"
+	}
+}
+
+// ==================
+// END GAME MENU
+// ==================
+
+window endgame
+{
+	{
+		background	"background/wingame_bg"
+	}
+
+	string title {
+		string		"_Thank you for playing UFO: Alien Invasion"
+		pos			"12 20"
+		size		"1000 35"
+		font		"f_menubig"
+		contentalign	ALIGN_UC
+		color		"0 0.8 0 1"
+	}
+
+	string endgame_click {
+		string		"_Click to continue"
+		pos			"814 750"
+		size		"200 20"
+		font		"f_verysmall"
+		contentalign	ALIGN_UR
+		color		"0 0.8 0 0.9"
+		ghost		true
+		onClick {
+			cmd "initmainui; seq_start developers;"
+		}
+	}
+
+	zone leave {
+		pos "0 0"
+		size "1024 768"
+		onClick {
+			cmd "initmainui; seq_start developers;"
+		}
+	}
+
+	text reason {
+		dataid		TEXT_STANDARD
+		color		"0 0.8 0 0.9"
+		bgcolor		"0.2 0.2 0.2 0.4"
+		contentalign	ALIGN_UC
+		pos			"30 500"
+		size		"960 240"
+		lineheight	"20"
+		font		"f_normal"
+		onClick		{ call *node:parent.leave@click }
+		onViewChange	{
+			*node:root.reason_scroll@fullsize = <fullsize>
+			*node:root.reason_scroll@current = <viewpos>
+			*node:root.reason_scroll@viewsize = <viewsize>
+		}
+	}
+	vscrollbar reason_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"992 500"
+		height		"240"
+		current		0
+		viewsize	12
+		fullsize	12
+		hidewhenunused true
+		onClick		{ call *node:parent.leave@click }
+		onChange	{ *node:root.reason@viewpos = <current> }
+	}
+
+	func onWindowOpened {
+		cmd "music_stop;snd_music Crystan-WinGame;"
+	}
+}
+
+// ========================
+// POPUP EXIT CONFIRMATION
+// ========================
+window popup_exit_confirmation
+{
+	{
+		string		"_Exit Campaign Confirmation"
+		background		"ui/popup_alpha_tile"
+		pos			"264 262"
+		size		"486 247"
+		dragbutton	true
+		closebutton	true
+	}
+	string exit_confirmation_label
+	{
+		string		"_You will lose all your campaign progress."
+		pos			"26 58"
+		size		"450 60"
+	}
+	cmpPopupButton bt_quit
+	{
+		tooltip		"_Exit current campaign and return to main menu."
+		string		"_Quit anyway"
+		pos			"28 188"
+		onClick		{
+						cmd "ui_pop;"
+						cmd "game_exit;"
+					}
+	}
+	cmpCancelButton bt_dontquit
+	{
+		tooltip		"_Do not quit."
+		pos			"285 188"
+		onClick		{ cmd "ui_pop;" }
+	}
+}

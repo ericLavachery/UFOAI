@@ -406,7 +406,7 @@ item encased_plasma_assault_ammo
 			range		100
 			shots		1
 			ammo		1
-			time		9
+			time		8
 			damage		"75 14"
 			dmgweight	"plasma_pierce"
 			reaction	true
@@ -609,7 +609,7 @@ item encased_plasma_sniper_ammo
 			shots		1
 			ammo		1
 			time		14
-			damage		"180 30"
+			damage		"165 30"
 			dmgweight	"plasma_pierce"
 			reaction	true
 			throughwall 3
@@ -631,7 +631,7 @@ item encased_plasma_sniper_ammo
 			shots		1
 			ammo		1
 			time		20
-			damage		"180 30"
+			damage		"165 30"
 			dmgweight	"plasma_pierce"
 			reaction	true
 			throughwall 3
@@ -653,11 +653,11 @@ item encased_plasma_sniper_ammo
 			speed		3600
 			spread		"1.6 1.6"
 			crouch		0.9
-			range		70
+			range		65
 			shots		1
 			ammo		1
 			time		7
-			damage		"180 20"
+			damage		"165 20"
 			dmgweight	"plasma_pierce"
 			reaction	true
 			throughwall 4
@@ -675,14 +675,82 @@ item encased_plasma_sniper_ammo
 			speed		3600
 			spread		"1 1"
 			crouch		0.8
-			range		70
+			range		65
 			shots		1
 			ammo		1
 			time		12
-			damage		"180 20"
+			damage		"165 20"
 			dmgweight	"plasma_pierce"
 			reaction	false
 			throughwall 4
+		}
+	}
+}
+
+item encased_plasma_slug_ammo
+{
+	name			"Chevrotine PC"
+	model			"weapons/shotgun/shotgun_clip_green"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 1 1"
+	center			"0 0 0"
+	scale			1.5
+	price			600
+	productioncost 	300
+	size			5
+	is_primary		true
+	dmgtype			"plasma"
+	weight			0.1
+
+	weapon_mod
+	{
+		weapon shotgun2
+		firedef
+		{
+			name				"_Single Barrel"
+			skill				"close"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-shotgun"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2.8 2.8"
+			crouch				0.9
+			range				40
+			shots				5
+			ammo				1
+			delaybetweenshots	0
+			time				5
+			damage				"48 7"
+			dmgweight			"plasma_pierce"
+			reaction			true
+		}
+		firedef
+		{
+			name				"_Double Barrel"
+			skill				"close"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-shotgunx2"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"4 4"
+			crouch				0.9
+			range				40
+			shots				10
+			ammo				2
+			delaybetweenshots	0
+			time				5
+			damage				"48 7"
+			dmgweight			"plasma_pierce"
+			reaction			true
 		}
 	}
 }

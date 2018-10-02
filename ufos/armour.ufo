@@ -228,7 +228,7 @@ item armour_power
 		plasma_light		45
 		plasma_medium		55
 		plasma_heavy		45
-		plasma_pierce		35
+		plasma_pierce		30
 
 		laser_light			20
 		laser_medium		20

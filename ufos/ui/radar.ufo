@@ -1,0 +1,17 @@
+// fullscreen battlescape radar
+window radar {
+	{
+		fill		true
+		starlayout	true
+	}
+
+	radar hudradar
+	{
+		align	LAYOUTALIGN_FILL
+
+		onRClick
+		{
+			cmd "closeradar;"
+		}
+	}
+}

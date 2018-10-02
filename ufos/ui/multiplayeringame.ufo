@@ -1,0 +1,57 @@
+// ==================
+// MULTI-PLAYER IN_GAME
+// ==================
+
+window multiplayerInGame
+{
+	/** @todo Remove me */
+	{ } // empty properties to fix parsing problem with "image" token (behaviour or property?)
+
+	// ==================
+	// background
+	// ==================
+
+	image background
+	{
+		src	"background/main_bg"
+	}
+
+	string version
+	{
+		string	*cvar:version
+		pos		"10 744"
+	}
+
+	// ==================
+	// buttons
+	// ==================
+
+	cmpMenuButton button_continue
+	{
+		pos	"640 170"
+		onClick	{ cmd "ui_pop;" }
+		string	"_Continue"
+	}
+
+	cmpMenuButton button_options
+	{
+		pos	"640 240"
+		onClick	{ cmd "ui_push options;" }
+		string	"_Options"
+	}
+
+	cmpMenuButton button_irc
+	{
+		visiblewhen "exists *cvar:irc_defaultChannel"
+		pos	"640 310"
+		onClick	{ cmd "ui_push irc;" }
+		string	"_Lobby"
+	}
+
+	cmpMenuButton button_abort
+	{
+		pos	"640 520"
+		onClick	{ cmd "game_exit;ui_pop;" }
+		string	"_Abort Game"
+	}
+}

@@ -1,0 +1,186 @@
+// =============================
+// POPUP WINDOW USED BY UI CORE
+// @sa /client/menu/ui/m_popup.c
+// @sa /client/menu/ui/m_popup.h
+// =============================
+
+// ==================
+// POPUP
+// ==================
+
+window popup
+{
+	{
+		pos			"264 262"
+		size		"496 247"
+		dragbutton	true
+		closebutton	true
+		background		"ui/popup_alpha_tile"
+		string		*cvar:ui_sys_popup_title
+	}
+
+	text popup_text
+	{
+		dataid		TEXT_POPUP_INFO
+		pos			"26 58"
+		size		"426 128"
+		lineheight	16
+		tabwidth	100
+		rows		8
+		onViewChange	{
+			*node:root.popup_text_scroll@fullsize = <fullsize>
+			*node:root.popup_text_scroll@current = <viewpos>
+			*node:root.popup_text_scroll@viewsize = <viewsize>
+		}
+	}
+
+	vscrollbar popup_text_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"457 58"
+		height		"128"
+		current		0
+		viewsize	8
+		fullsize	8
+		hidewhenunused true
+		onChange	{ *node:root.popup_text@viewpos = <current> }
+	}
+	button button_ok
+	{
+		string		"_OK"
+		tooltip		"_Close this dialogue"
+		background		"ui/button_green_small"
+		pos			"260 180"
+		width		"200"
+		font		"f_menu"
+		color		"0 0.5 0 1"
+		onClick		{ cmd "ui_close popup;" }
+	}
+}
+
+// ==================
+// POPUP LIST
+// ==================
+
+window popup_list
+{
+	{
+		pos			"264 262"
+		size		"496 247"
+		dragbutton	true
+		closebutton	true
+		background		"ui/popup_alpha_tile"
+		string		*cvar:ui_sys_popup_title
+	}
+
+	text popup_text
+	{
+		pos			"26 58"
+		size		"446 32"
+		dataid		TEXT_POPUP_INFO
+		lineheight	16
+		tabwidth	100
+		rows		2
+	}
+	text popup_list
+	{
+		pos			"26 96"
+		size		"426 96"
+		dataid		TEXT_LIST
+		lineheight	16
+		tabwidth	100
+		rows		6
+		onViewChange	{
+			*node:root.popup_list_scroll@fullsize = <fullsize>
+			*node:root.popup_list_scroll@current = <viewpos>
+			*node:root.popup_list_scroll@viewsize = <viewsize>
+		}
+	}
+	vscrollbar popup_list_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"457 96"
+		height		"96"
+		current		0
+		viewsize	6
+		fullsize	6
+		hidewhenunused true
+		onChange	{ *node:root.popup_list@viewpos = <current> }
+	}
+
+	cmpPopupButton bt_ok
+	{
+		string		"_OK"
+		tooltip		"_Close this dialogue"
+		pos			"296 192"
+		onClick		{ cmd "ui_pop;" }
+	}
+}
+
+// ==================
+// POPUP BUTTON
+// ==================
+
+window popup_button
+{
+	{
+		pos			"264 262"
+		size		"496 247"
+		dragbutton	true
+		closebutton	true
+		background		"ui/popup_alpha_tile"
+		string		*cvar:ui_sys_popup_title
+	}
+
+	text popup_text
+	{
+		pos			"26 58"
+		size		"426 128"
+		dataid		TEXT_POPUP_INFO
+		lineheight	16
+		tabwidth	100
+		rows		8
+		onViewChange	{
+			*node:root.popup_text_scroll@fullsize = <fullsize>
+			*node:root.popup_text_scroll@current = <viewpos>
+			*node:root.popup_text_scroll@viewsize = <viewsize>
+		}
+	}
+
+	vscrollbar popup_text_scroll {
+		image		"ui/scrollbar_v_green"
+		pos			"457 58"
+		height		"128"
+		current		0
+		viewsize	8
+		fullsize	8
+		hidewhenunused true
+		onChange	{ *node:root.popup_text@viewpos = <current> }
+	}
+
+	cmpPopupButton popup_button_1
+	{
+		string		*cvar:ui_sys_popup_button_text1
+		tooltip		*cvar:ui_sys_popup_button_tooltip1
+		pos			"26 192"
+		invis		true
+	}
+
+	cmpPopupButton popup_button_2
+	{
+		string		*cvar:ui_sys_popup_button_text2
+		tooltip		*cvar:ui_sys_popup_button_tooltip2
+		pos			"296 192"
+		invis		true
+	}
+
+	cmpPopupButton popup_button_3
+	{
+		string		*cvar:ui_sys_popup_button_text3
+		tooltip		*cvar:ui_sys_popup_button_tooltip3
+		pos			"296 156"
+		invis		true
+	}
+
+	func onWindowOpened
+	{
+	}
+}
