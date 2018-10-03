@@ -396,7 +396,7 @@ team bloodspider_adv
 		stun_gas		999
 	}
 	templates (
-		alien_blood
+		alien_bloodadv
 	)
 }
 
@@ -543,6 +543,6 @@ team hovernet_adv
 		stun_gas		999
 	}
 	templates (
-		alien_hovernet
+		alien_hovernetadv
 	)
 }

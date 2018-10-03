@@ -193,6 +193,21 @@ chrtemplate alien_blood {
 	piloting	"0 0"
 	targeting	"0 0"
 	evading	"0 0"
+	health	"160 160"
+}
+
+chrtemplate alien_bloodadv {
+	strength	"55 55"
+	speed	"70 90"
+	accuracy	"50 50"
+	mind	"50 50"
+	close	"50 50"
+	assault	"50 50"
+	sniper	"50 50"
+	explosive	"50 50"
+	piloting	"0 0"
+	targeting	"0 0"
+	evading	"0 0"
 	health	"170 170"
 }
 
@@ -209,6 +224,21 @@ chrtemplate alien_hovernet {
 	targeting	"0 0"
 	evading	"0 0"
 	health	"100 100"
+}
+
+chrtemplate alien_hovernetadv {
+	strength	"55 55"
+	speed	"95 95"
+	accuracy	"30 30"
+	mind	"50 50"
+	close	"35 35"
+	assault	"35 35"
+	sniper	"35 35"
+	explosive	"35 35"
+	piloting	"0 0"
+	targeting	"0 0"
+	evading	"0 0"
+	health	"110 110"
 }
 
 chrtemplate robot {

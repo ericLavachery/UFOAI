@@ -65,14 +65,16 @@ item bloodspider_adv_weapon
 	name			"Combat Bloodspider weapon" // TODO Will this ever be displayed? If so we would need gettext support.
 	model			"weapons/knife/knife" //FIXME
 	weapon			true
-	type			"melee"
+	type			"pistol"
 	animationindex	2 //FIXME
 	scale			1.0
 	size			6
 	firetwohanded	true
-	dmgtype			"normal"
+	dmgtype			"stun_electro"
+	ammo			200
+	reload			12
 	virtual			true
-	weight		15
+	weight			15
 
 	weapon_mod
 	{
@@ -81,37 +83,20 @@ item bloodspider_adv_weapon
 		{
 			name		"_Stab"
 			skill		"close"
-			projtl		null
-			impact		null
-			hitbody		null
-			firesnd		"aliens/bloodspider/attack"
+			projtl		laserFrizzledBeam
+			impact		laserFrizzledImpact
+			hitbody		laserFrizzledImpact
+			firesnd		"weapons/electro-taser"
 			speed		0
-			range		2
-			shots		1 //FIXME
-			time		10 //FIXME
-			damage		"110 10" //FIXME
+			spread		"1.3 1.3"
+			crouch		0.85
+			range		4
+			shots		1
+			ammo		1
+			time		10
+			damage		"110 10"
 			reaction	true
-			dmgweight	"normal_monomolecularblade"
-		}
-		firedef
-		{
-			name				"_Candlelight"
-			skill				"close"
-			projtl				fireBall
-			impact				fireImpact
-			hitbody				burning
-			firesnd				"weapons/flamer-small"
-			sndonce				true
-			speed				300
-			spread				"1.5 1.5"
-			crouch				0.9
-			range				8
-			shots				12
-			delaybetweenshots	25
-			time				14
-			damage				"14 4"
-			dmgweight			"fire_flamer"
-			reaction			true
+			dmgweight	"stun_electro"
 		}
 	}
 }
@@ -200,7 +185,7 @@ item hovernet_adv_plasma
 			shots				3
 			ammo				3
 			delaybetweenshots	8
-			time				13
+			time				14
 			damage				"60 15"
 			dmgweight			"plasma_light"
 			reaction			true
