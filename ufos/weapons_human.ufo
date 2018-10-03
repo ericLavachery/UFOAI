@@ -440,7 +440,7 @@ item chaingun_ammo
 			damage				"55 5"
 			dmgweight			"normal_heavy"
 			reaction			false
-			throughwall 		5
+			throughwall 		6
 		}
 		firedef
 		{
@@ -464,7 +464,7 @@ item chaingun_ammo
 			damage				"55 5"
 			dmgweight			"normal_heavy"
 			reaction			false
-			throughwall 		5
+			throughwall 		6
 		}
 	}
 }
