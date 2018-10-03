@@ -1034,9 +1034,14 @@ tech rs_weapon_chaingun
 		default "*msgid:chaingun_pre_txt"
 	}
 
+	require_AND
+	{
+		tech rs_skill_assault
+		tech rs_weapon_plasblaster
+	}
 	provides	chaingun
-	time	-1
-	producetime	-1
+	time	0
+	producetime	180
 }
 
 tech rs_weapon_chaingun_ammo
@@ -1047,9 +1052,14 @@ tech rs_weapon_chaingun_ammo
 
 	redirect	rs_weapon_chaingun
 
+	require_AND
+	{
+		tech rs_damage_normal
+		tech rs_weapon_chaingun
+	}
 	provides	chaingun_ammo
-	time	-1
-	producetime	-1
+	time	0
+	producetime	24
 }
 
 tech rs_weapon_shotgun

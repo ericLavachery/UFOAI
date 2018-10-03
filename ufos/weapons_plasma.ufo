@@ -523,6 +523,7 @@ item encased_plasma_mg_ammo
 			damage				"90 15"
 			dmgweight			"plasma_pierce"
 			reaction			true
+			throughwall 		2
 		}
 		firedef
 		{
@@ -546,6 +547,7 @@ item encased_plasma_mg_ammo
 			damage				"90 15"
 			dmgweight			"plasma_pierce"
 			reaction			true
+			throughwall 		4
 		}
 		firedef
 		{
@@ -569,6 +571,7 @@ item encased_plasma_mg_ammo
 			damage				"90 15"
 			dmgweight			"plasma_pierce"
 			reaction			false
+			throughwall 		4
 		}
 	}
 }

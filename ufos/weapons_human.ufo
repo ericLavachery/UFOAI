@@ -240,7 +240,7 @@ item machinegun
 	shape			"1 0 4 1"
 	shape			"0 1 4 1"
 	center			"5.9 0 2.5"
-	scale			1.1
+	scale			1.2
 	ammo			120
 	reload			16
 	reloadsound		"weapons/reload-rifle"	// @todo better sound?
@@ -294,6 +294,7 @@ item machinegun_ammo
 			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			true
+			throughwall 		1
 		}
 		firedef
 		{
@@ -317,6 +318,7 @@ item machinegun_ammo
 			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			true
+			throughwall 		2
 		}
 		firedef
 		{
@@ -340,6 +342,129 @@ item machinegun_ammo
 			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			false
+			throughwall 		2
+		}
+	}
+}
+
+// =======================
+// CHAINGUN
+// =======================
+item chaingun
+{
+	name			"_Minigun"
+	model			"weapons/chaingun/chaingun"
+	weapon			true
+	type			"biggun"
+	animationindex	1
+	holdtwohanded	true
+	firetwohanded	true
+	shape			"1 0 4 1"
+	shape			"0 1 5 1"
+	center			"5 0 3"
+	scale			1.25
+	ammo			200
+	reload			24
+	reloadsound		"weapons/reload-rifle"	// @todo better sound?
+	price			6400
+	productioncost 	3200
+	notonmarket		true
+	size			20
+	is_primary		true
+	is_heavy		true
+	weight			16.5
+}
+
+item chaingun_ammo
+{
+	name			"_Minigun Magazine"
+	model			"weapons/chaingun/chaingun_ammo"
+	type			"ammo"
+	animationindex	0
+	shape			"0 0 4 2"
+	center			"-3 -6 0"
+	scale			1.6
+	is_primary		true
+	is_heavy		true
+	dmgtype			"normal"
+	notonmarket		true
+	size			1
+	weight			2.7
+
+	weapon_mod
+	{
+		weapon chaingun
+		firedef
+		{
+			name				"_5-Round Burst"
+			skill				"assault"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-chaingun-5x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"1 1"
+			crouch				0.6
+			range				150
+			shots				5
+			ammo				5
+			delaybetweenshots	10
+			time				16
+			damage				"55 5"
+			dmgweight			"normal_heavy"
+			reaction			true
+			throughwall 		3
+		}
+		firedef
+		{
+			name				"_Full-Auto"
+			skill				"assault"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-chaingun-40x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2 2"
+			crouch				0.5
+			range				150
+			shots				40
+			ammo				40
+			delaybetweenshots	20
+			time				28
+			damage				"55 5"
+			dmgweight			"normal_heavy"
+			reaction			false
+			throughwall 		5
+		}
+		firedef
+		{
+			name				"_Full-Auto Sweep"
+			skill				"assault"
+			projtl				bullet
+			impact				bulletImpact
+			hitbody				null
+			firesnd				"weapons/bullet-chaingun-40x"
+			impsnd				"impact/bullet-impact"
+			bodysnd 			"impact/bullet-bodyimpact"
+			sndonce				true
+			speed				3000
+			spread				"2 15"
+			crouch				0.5
+			range				150
+			shots				40
+			ammo				40
+			delaybetweenshots	20
+			time				28
+			damage				"55 5"
+			dmgweight			"normal_heavy"
+			reaction			false
+			throughwall 		5
 		}
 	}
 }
