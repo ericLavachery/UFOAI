@@ -61,7 +61,7 @@ item needlergun_ammo
 	productioncost 	400
 	size			9
 	is_primary		true
-	dmgtype			"normal"
+	dmgtype			"stun_electro"
 	weight			0.5
 
 	weapon_mod
@@ -86,7 +86,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		30
 			time		12
-			damage		"11 4"
+			damage		"12 4"
 			dmgweight	"normal_needle"
 			reaction	true
 		}
@@ -110,7 +110,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		60
 			time		18
-			damage		"11 4"
+			damage		"12 4"
 			dmgweight	"normal_needle"
 			reaction	true
 		}
@@ -133,7 +133,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		90
 			time		24
-			damage		"11 4"
+			damage		"12 4"
 			dmgweight	"normal_needle"
 			reaction	false
 		}
@@ -161,7 +161,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		40
 			time		14
-			damage		"12 4"
+			damage		"13 4"
 			dmgweight	"normal_needle"
 			reaction	true
 		}
@@ -185,7 +185,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		80
 			time		20
-			damage		"12 4"
+			damage		"13 4"
 			dmgweight	"normal_needle"
 			reaction	true
 		}
@@ -208,7 +208,7 @@ item needlergun_ammo
 			delaybetweenshots	25
 			ammo		120
 			time		26
-			damage		"12 4"
+			damage		"13 4"
 			dmgweight	"normal_needle"
 			reaction	false
 		}

@@ -52,7 +52,7 @@ item medikit
 			shots	1
 			ammo		1
 			time	10
-			damage	"-20 5"
+			damage	"-30 6"
 			reaction	false
 			dmgweight "stun_electro"
 		}

@@ -449,8 +449,8 @@ equipment civilian_farmers // some will be weaponless
 	mininterest			0
 	maxinterest			10000
 
-	item (pistol			2)
-	item (pistol_ammo		2)
+	item (pistol			5)
+	item (pistol_ammo		8)
 	item (shotgun			2)
 	item (shotgun_ammo		6)
 	item (knife				2)
@@ -461,11 +461,11 @@ equipment civilian_gang
 	mininterest			0
 	maxinterest			10000
 
-	item (pistol			3)
-	item (pistol_ammo		4)
-	item (shotgun			1)
-	item (shotgun_ammo		1)
-	item (smg 				10)
+	item (pistol			30)
+	item (pistol_ammo		30)
+	item (shotgun			5)
+	item (shotgun_ammo		5)
+	item (smg 				20)
 	item (smg_ammo			45)
 	item (knife				20)
 }
@@ -475,14 +475,14 @@ equipment civilian_police // some may be weaponless
 	mininterest			0
 	maxinterest			10000
 
-	item (pistol			10)
+	item (pistol			70)
 	item (pistol_ammo		25)
 	item (smg 				10)
 	item (smg_ammo			45)
-	item (shotgun			5)
-	item (shotgun_ammo		7)
-	item (sniper			1)
-	item (sniper_ammo		1)
+	item (shotgun			8)
+	item (shotgun_ammo		8)
+	item (sniper			2)
+	item (sniper_ammo		2)
 	item (fraggrenade		2)
 	item (smokegrenade		2)
 	item (stungrenade		2)
@@ -493,9 +493,9 @@ equipment civilian_antiterrorist
 	mininterest			0
 	maxinterest			10000
 
-	item (assault				5)
+	item (assault				45)
 	item (assault_ammo			12)
-	item (sniper				15)
+	item (sniper				20)
 	item (sniper_ammo			35)
 	item (rpg					1)
 	item (rpg_ammo				3)
@@ -516,7 +516,7 @@ equipment civilian_army
 	mininterest			0
 	maxinterest			10000
 
-	item (assault				25)
+	item (assault				65)
 	item (assault_ammo			35)
 	item (sniper				1)
 	item (sniper_ammo			2)

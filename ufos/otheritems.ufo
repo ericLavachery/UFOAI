@@ -173,7 +173,7 @@ item hovernet_adv_plasma
 	firetwohanded	true
 	scale			1.25
 	size			40
-	dmgtype			"normal"
+	dmgtype			"plasma"
 	ammo			200
 	reload			12
 	reloadsound		"weapons/reload-rifle"
