@@ -399,6 +399,8 @@ equipment campaign_asymptotic_market
 	name "_Asymptotic Market"
 	item (armour_medium			3)
 	item (armour_power			3)
+	item (chaingun				2)
+	item (chaingun_ammo		20)
 	item (coilgun					2)
 	item (coilgun_ammo			20)
 	item (rpg_incendiary_ammo		10)
