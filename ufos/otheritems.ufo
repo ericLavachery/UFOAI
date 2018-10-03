@@ -81,7 +81,7 @@ item bloodspider_adv_weapon
 		weapon bloodspider_adv_weapon
 		firedef
 		{
-			name		"_Stab"
+			name		"_Stun Charge"
 			skill		"close"
 			projtl		laserFrizzledBeam
 			impact		laserFrizzledImpact
@@ -93,7 +93,7 @@ item bloodspider_adv_weapon
 			range		4
 			shots		1
 			ammo		1
-			time		10
+			time		8
 			damage		"110 10"
 			reaction	true
 			dmgweight	"stun_electro"
