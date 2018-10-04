@@ -284,8 +284,8 @@ item machinegun_ammo
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
 			speed				3000
-			spread				"1.6 1.6"
-			crouch				0.8
+			spread				"1.5 1.5"
+			crouch				0.7
 			range				100
 			shots				5
 			ammo				5
@@ -309,12 +309,12 @@ item machinegun_ammo
 			sndonce				true
 			speed				3000
 			spread				"2.4 2.4"
-			crouch				0.7
+			crouch				0.6
 			range				100
 			shots				15
 			ammo				15
 			delaybetweenshots	10
-			time				26
+			time				24
 			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			true
@@ -332,13 +332,13 @@ item machinegun_ammo
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
 			speed				3000
-			spread				"3 10"
-			crouch				0.7
+			spread				"2.7 10"
+			crouch				0.6
 			range				100
 			shots				20
 			ammo				20
 			delaybetweenshots	10
-			time				26
+			time				24
 			damage				"67 6"
 			dmgweight			"normal_medium"
 			reaction			false

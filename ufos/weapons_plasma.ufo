@@ -513,8 +513,8 @@ item encased_plasma_mg_ammo
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
 			speed				3000
-			spread				"1.6 1.6"
-			crouch				0.85
+			spread				"1.5 1.5"
+			crouch				0.7
 			range				100
 			shots				5
 			ammo				5
@@ -538,12 +538,12 @@ item encased_plasma_mg_ammo
 			sndonce				true
 			speed				3000
 			spread				"2.4 2.4"
-			crouch				0.85
+			crouch				0.6
 			range				100
 			shots				15
 			ammo				15
 			delaybetweenshots	10
-			time				26
+			time				24
 			damage				"90 15"
 			dmgweight			"plasma_pierce"
 			reaction			true
@@ -561,13 +561,13 @@ item encased_plasma_mg_ammo
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
 			speed				3000
-			spread				"3 10"
-			crouch				0.85
+			spread				"2.7 10"
+			crouch				0.6
 			range				100
 			shots				20
 			ammo				20
 			delaybetweenshots	10
-			time				26
+			time				24
 			damage				"90 15"
 			dmgweight			"plasma_pierce"
 			reaction			false
