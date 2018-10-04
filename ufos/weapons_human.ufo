@@ -368,7 +368,6 @@ item chaingun
 	reloadsound		"weapons/reload-rifle"	// @todo better sound?
 	price			6400
 	productioncost 	3200
-	notonmarket		true
 	size			20
 	is_primary		true
 	is_heavy		true
@@ -387,7 +386,6 @@ item chaingun_ammo
 	is_primary		true
 	is_heavy		true
 	dmgtype			"normal"
-	notonmarket		true
 	size			1
 	weight			2.7
 
