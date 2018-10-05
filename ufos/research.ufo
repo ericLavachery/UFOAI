@@ -1024,7 +1024,6 @@ tech rs_weapon_bombkit1
 
 tech rs_weapon_chaingun
 {
-	// Note: Multiplayer only
 	type	"weapon"
 	up_chapter	equipment
 	description {
@@ -1040,13 +1039,12 @@ tech rs_weapon_chaingun
 		tech rs_weapon_plasblaster
 	}
 	provides	chaingun
-	time	0
+	time	3000
 	producetime	180
 }
 
 tech rs_weapon_chaingun_ammo
 {
-	// Note: Multiplayer only
 	type	"weapon"
 	up_chapter	equipment
 
@@ -1058,13 +1056,12 @@ tech rs_weapon_chaingun_ammo
 		tech rs_weapon_chaingun
 	}
 	provides	chaingun_ammo
-	time	0
+	time	1000
 	producetime	24
 }
 
 tech rs_weapon_shotgun
 {
-	// Note: Multiplayer only
 	type	"weapon"
 	up_chapter	equipment
 	description {
@@ -1072,7 +1069,6 @@ tech rs_weapon_shotgun
 	}
 	// pre_description	"*msgid:shotgun_pre_txt"
 
-// multiplayer only thus not needed at production menu
 	require_AND
 	{
 		tech rs_skill_close
@@ -1085,7 +1081,6 @@ tech rs_weapon_shotgun
 
 tech rs_weapon_shotgun_ammo
 {
-	// Note: Multiplayer only
 	type	"weapon"
 	up_chapter	equipment
 
