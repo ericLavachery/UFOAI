@@ -340,8 +340,8 @@ item armour_medium_alien
 
 	protection {
 		normal_spray	22
-		normal_light	60
-		normal_medium	50
+		normal_light	50
+		normal_medium	40
 		normal_heavy	25
 
 		normal_steelblade			60

@@ -14,7 +14,7 @@ item assault
 	shape			"0 1 5 1"
 	center			"3 -3 1"
 	scale			1.25
-	ammo			30
+	ammo			32
 	reload			8
 	reloadsound		"weapons/reload-rifle"
 	price			2000
@@ -50,17 +50,17 @@ item assault_ammo
 			projtl		bullet
 			impact		bulletImpact
 			hitbody		null
-			firesnd		"weapons/bullet-rifle-1x"
+			firesnd		"weapons/bullet-rifle-2x"
 			impsnd		"impact/bullet-impact"
 			bodysnd 	"impact/bullet-bodyimpact"
 			speed		3000
 			spread		"1.2 1.2"
 			crouch		0.85
 			range		100
-			shots		1
-			ammo		1
-			time		8
-			damage		"55 7"
+			shots		2
+			ammo		2
+			time		9
+			damage		"50 7"
 			dmgweight	"normal_medium"
 			reaction	true
 		}
@@ -80,19 +80,19 @@ item assault_ammo
 			range		100
 			shots		1
 			ammo		1
-			time		12
-			damage		"55 7"
+			time		10
+			damage		"50 7"
 			dmgweight	"normal_medium"
 			reaction	false
 		}
 		firedef
 		{
-			name				"_3-Round Burst"
+			name				"_4-Round Burst"
 			skill				"assault"
 			projtl				bullet
 			impact				bulletImpact
 			hitbody				null
-			firesnd				"weapons/bullet-rifle-3x"
+			firesnd				"weapons/bullet-rifle-4x"
 			impsnd				"impact/bullet-impact"
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
@@ -100,11 +100,11 @@ item assault_ammo
 			spread				"1.5 1.5"
 			crouch				0.85
 			range				100
-			shots				3
-			ammo				3
+			shots				4
+			ammo				4
 			delaybetweenshots	10
-			time				12
-			damage				"55 7"
+			time				13
+			damage				"50 7"
 			dmgweight			"normal_medium"
 			reaction			true
 		}
@@ -127,7 +127,7 @@ item assault_ammo
 			ammo				8
 			delaybetweenshots	10
 			time				22
-			damage				"55 7"
+			damage				"50 7"
 			dmgweight			"normal_medium"
 			reaction	false
 		}
@@ -279,12 +279,12 @@ item machinegun_ammo
 			projtl				bullet-hmg
 			impact				bulletImpact
 			hitbody				null
-			firesnd				"weapons/bullet-hmg-5x"
+			firesnd				"weapons/bullet-hmg-d5x"
 			impsnd				"impact/bullet-impact"
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
 			speed				3000
-			spread				"1.5 1.5"
+			spread				"1.4 1.4"
 			crouch				0.7
 			range				100
 			shots				5
@@ -303,7 +303,7 @@ item machinegun_ammo
 			projtl				bullet-hmg
 			impact				bulletImpact
 			hitbody				null
-			firesnd				"weapons/bullet-hmg-20x"
+			firesnd				"weapons/bullet-hmg-d20x"
 			impsnd				"impact/bullet-impact"
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
@@ -327,7 +327,7 @@ item machinegun_ammo
 			projtl				bullet-hmg
 			impact				bulletImpact
 			hitbody				null
-			firesnd				"weapons/bullet-hmg-20x"
+			firesnd				"weapons/bullet-hmg-d20x"
 			impsnd				"impact/bullet-impact"
 			bodysnd 			"impact/bullet-bodyimpact"
 			sndonce				true
@@ -472,7 +472,7 @@ item chaingun_ammo
 // =======================
 item shotgun
 {
-	name			"_Shotgun"
+	name			"Fusil de combat"
 	model			"weapons/shotgun2/shotgun"
 	weapon			true
 	type			"rifle"
@@ -521,7 +521,7 @@ item sniper
 
 item sniper_ammo
 {
-	name			"_Sniper Rifle Magazine"
+	name			"Chargeur de fusil"
 	model			"weapons/sniper/sniper_clip"
 	type			"ammo"
 	animationindex	0
@@ -638,7 +638,7 @@ item sniper_ammo
 // =======================
 item bolterrifle
 {
-	name			"_Electromagnetic Rifle"
+	name			"Canon thunderbolt"
 	model			"weapons/bolterrifle/bolterrifle"
 	weapon			true
 	type			"biggun"
@@ -661,7 +661,7 @@ item bolterrifle
 
 item bolterrifle_ammo
 {
-	name			"_Electromagnetic Rifle Magazine"
+	name			"Chargeur thunderbolt"
 	model			"weapons/bolterrifle/bolterrifle_clip"
 	type			"ammo"
 	animationindex	0
@@ -690,7 +690,7 @@ item bolterrifle_ammo
 			impsnd		"impact/nail-impact"
 			bodysnd 	"impact/nail-bodyimpact"
 			sndonce		true
-			speed		2000
+			speed		4000
 			spread		"0.9 0.9"
 			crouch		0.85
 			range		200
@@ -713,7 +713,7 @@ item bolterrifle_ammo
 			firesnd				"weapons/bullet-bolter"
 			impsnd				"impact/nail-impact"
 			bodysnd 			"impact/nail-bodyimpact"
-			speed				2000
+			speed				4000
 			spread				"0.25 0.25"
 			crouch				0.6
 			range				200
@@ -730,7 +730,7 @@ item bolterrifle_ammo
 
 item bolterrifle_am_ammo
 {
-	name			"_Electromagnetic Rifle Antimatter Magazine"
+	name			"Chargeur thunderbolt AM"
 	model			"weapons/bolterrifle/bolterrifle_am_clip"
 	type			"ammo"
 	animationindex	0
@@ -759,7 +759,7 @@ item bolterrifle_am_ammo
 			impsnd		"impact/nail-impact"
 			bodysnd 	"impact/nail-bodyimpact"
 			sndonce		true
-			speed		2000
+			speed		4000
 			spread		"0.9 0.9"
 			crouch		0.85
 			range		135
@@ -782,7 +782,7 @@ item bolterrifle_am_ammo
 			firesnd				"weapons/bullet-bolter"
 			impsnd				"impact/nail-impact"
 			bodysnd 			"impact/nail-bodyimpact"
-			speed				2000
+			speed				4000
 			spread				"0.25 0.25"
 			crouch				0.6
 			range				135
@@ -802,7 +802,7 @@ item bolterrifle_am_ammo
 //========================
 item coilgun
 {
-	name			"_Coilgun"
+	name			"_Electromagnetic Rifle"
 	model			"weapons/coilgun/coilgun"
 	weapon			true
 	type			"rifle"
@@ -826,7 +826,7 @@ item coilgun
 
 item coilgun_ammo
 {
-	name			"_Coilgun Clip"
+	name			"_Electromagnetic Rifle Magazine"
 	model			"weapons/coilgun/coilgun_ammo"
 	type			"ammo"
 	animationindex	0
@@ -854,7 +854,7 @@ item coilgun_ammo
 			firesnd		"weapons/bullet-gauss"
 			impsnd		"impact/nail-impact"
 			bodysnd 	"impact/nail-bodyimpact"
-			speed		2000
+			speed		4000
 			spread		"1 1"
 			crouch		0.85
 			range		150
@@ -876,7 +876,7 @@ item coilgun_ammo
 			firesnd		"weapons/bullet-gauss"
 			impsnd		"impact/nail-impact"
 			bodysnd 	"impact/nail-bodyimpact"
-			speed		2000
+			speed		4000
 			spread		"0.35 0.35"
 			crouch		0.6
 			range		150

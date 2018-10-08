@@ -70,9 +70,17 @@ alienteam scouts
 	teaminterest
 	{
 		mininterest 	310
-		maxinterest 	10000
+		maxinterest 	349
 		minaliencount	4
 		maxaliencount	8
+		team 			(taman/alien_taman_heavy shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	350
+		maxinterest 	10000
+		minaliencount	5
+		maxaliencount	10
 		team 			(taman/alien_taman_heavy shevaar)
 	}
 }
@@ -124,9 +132,17 @@ alienteam workers
 	teaminterest
 	{
 		mininterest 	310
-		maxinterest 	10000
+		maxinterest 	349
 		minaliencount	8
 		maxaliencount	12
+		team 			(taman/alien_taman_heavy shevaar)
+	}
+	teaminterest
+	{
+		mininterest 	350
+		maxinterest 	10000
+		minaliencount	8
+		maxaliencount	14
 		team 			(taman/alien_taman_heavy shevaar)
 	}
 }
@@ -172,8 +188,8 @@ alienteam terror
 		mininterest 	200
 		maxinterest 	249
 		minaliencount	10
-		maxaliencount	12
-		team 			(taman/alien_taman shevaar bloodspider_adv hovernet)
+		maxaliencount	14
+		team 			(taman/alien_taman shevaar bloodspider_adv hovernet bloodspider)
 	}
 	teaminterest
 	{
@@ -195,7 +211,7 @@ alienteam terror
 	{
 		mininterest 	380
 		maxinterest 	10000
-		minaliencount	13
+		minaliencount	14
 		maxaliencount	20
 		team 			(shevaar ortnok ortnok bloodspider_adv hovernet_adv)
 	}
@@ -311,9 +327,17 @@ alienteam full
 	teaminterest
 	{
 		mininterest 	310
-		maxinterest 	10000
+		maxinterest 	359
 		minaliencount	20
 		maxaliencount	24
 		team 			( taman/alien_taman_heavy shevaar ortnok hovernet_adv bloodspider_adv )
+	}
+	teaminterest
+	{
+		mininterest 	360
+		maxinterest 	10000
+		minaliencount	22
+		maxaliencount	28
+		team 			( taman/alien_taman_heavy shevaar ortnok ortnok hovernet_adv bloodspider_adv )
 	}
 }

@@ -199,7 +199,8 @@ equipment alien_workers6
 	item (plasmagrenade		150)
 
 	// Armour
-	item (armour_medium_alien	100)
+	item (armour_medium_alien	65)
+	item (armour_light_alien	35)
 }
 
 equipment alien_soldiers1
@@ -325,7 +326,8 @@ equipment alien_soldiers6
 	item (plasblade			120)
 
 	// Armour
-	item (armour_medium_alien	100)
+	item (armour_medium_alien	80)
+	item (armour_light_alien	20)
 }
 
 equipment alien_base1

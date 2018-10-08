@@ -139,7 +139,7 @@ item hovernet_plasma
 			shots				1
 			ammo				1
 			delaybetweenshots	8
-			time				13
+			time				12
 			damage				"50 15"
 			dmgweight			"plasma_light"
 			reaction			true
@@ -168,6 +168,28 @@ item hovernet_adv_plasma
 	weapon_mod
 	{
 		weapon hovernet_adv_plasma
+		firedef
+		{
+			name				"_Single Shot"
+			skill				"assault"
+			projtl				plasmaPulse
+			impact				plasmaImpactCharged
+			hitbody				plasmaImpactCharged
+			firesnd				"weapons/plasma-hoverheavy"
+			impsnd				"impact/plasma-impact"
+			bodysnd 			"impact/plasma-bodyimpact"
+			speed				1300
+			spread				"1 1"
+			crouch				1
+			range				70
+			shots				1
+			ammo				1
+			delaybetweenshots	8
+			time				9
+			damage				"60 15"
+			dmgweight			"plasma_light"
+			reaction			true
+		}
 		firedef
 		{
 			name				"_Burst"
