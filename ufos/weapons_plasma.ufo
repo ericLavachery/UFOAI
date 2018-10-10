@@ -578,7 +578,7 @@ item encased_plasma_mg_ammo
 
 item encased_plasma_sniper_ammo
 {
-	name			"_Sniper Rifle EP Magazine"
+	name			"Chargeur PC de fusil"
 	model			"weapons/sniper/enc_plasma_clip_snp"
 	type			"ammo"
 	animationindex	0
